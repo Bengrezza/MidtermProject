@@ -10,5 +10,6 @@
 
 <h1>Photos For Me</h1>
 
+<h2>USER: ${DEBUG}</h2>
 </body>
 </html>
