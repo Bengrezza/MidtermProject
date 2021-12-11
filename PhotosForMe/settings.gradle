@@ -1,1 +1,3 @@
 rootProject.name = 'PhotosForMe'
+
+includeFlat 'JPAPhotoNerds'
