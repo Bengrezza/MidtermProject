@@ -92,7 +92,7 @@ pageEncoding="UTF-8"%>
 			</div>
 			<ul class="recent-comments-list">
 				<li class="recent-comments-item">
-					<p>Random comment here.</p>
+					<p>Random comment here. More comment stuff this is a very very long comment! WOW it is so long i think it will break everything......</p>
 				</li>
 				<li class="recent-comments-item">
 					<p>Random comment here.</p>
