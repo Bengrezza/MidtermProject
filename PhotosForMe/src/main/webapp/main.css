@@ -1,0 +1,300 @@
+
+/* Global Styles */
+
+html {
+    font-family: "Share Tech Mono", monospace;
+    font-size: 12px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    color: #e7e7e7;
+    background: #1A2238;
+}
+
+a {
+    text-decoration: none;
+    color: #FF6A3D;
+}
+
+ul {
+    list-style: none;
+}
+
+p {
+    font-size: 1.4rem;
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.btn {
+    margin: 0 9px;
+    background: #9DAAF2;
+    border-radius: 2rem;
+    color: #fafafa;
+    padding: 1rem 2.5rem;
+    display: inline-block;
+    margin-top: 2rem;
+    transition: background-color 650ms;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+/* Header */
+header {
+    width: 100%;
+    height: 5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.container {
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.nav-brand {
+    width: 7rem;
+}
+
+.nav-title p {
+    width: 100%;
+    max-width: 58rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #F4DB7D;
+    letter-spacing: 4px;
+    font-size: 3rem;
+    font-weight: 400;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 2px solid #9DAAF2;
+}
+
+.line1 {
+    width: 15px;
+    height: 3px;
+    margin: 5px 0;
+    background: linear-gradient(135deg, #FF6A3D 0%, rgb(255, 255, 255) 100%);
+}
+
+.line2 {
+    width: 30px;
+    height: 3px;
+    background: linear-gradient(135deg, #FF6A3D 0%, rgb(255, 255, 255) 100%);
+}
+
+.line3 {
+    width: 15px;
+    height: 3px;
+    margin: 5px 0;
+    margin-left: 15px;
+    background: linear-gradient(135deg, #FF6A3D 0%, rgb(255, 255, 255) 100%);
+}
+
+.burger-menu-icon {
+    cursor: pointer;
+    z-index: 999;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: rgba(55, 55, 55, 0.5);
+    padding: 1.2rem;
+    border-radius: 0% 0% 0% 40%;
+}
+
+.logo-pic {
+    height: 9rem;
+    width: auto;
+    border-radius: 50%;
+    display: block;
+    margin: 1.5rem 0;
+  }
+
+  .nav-list {
+    width: 24rem;
+    height: 35rem;
+    background-color: #363636;
+    border-radius: 25px;
+    position: fixed;
+    top: 0;
+    right: -28rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    z-index: 998;
+    transition: all 750ms ease-in-out;
+}
+
+.nav-list.active {
+    right: 0;
+}
+
+.nav-item {
+    margin: 1.2rem 0;
+}
+
+.nav-link {
+    opacity: 0;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    color: #FF6A3D;
+    letter-spacing: 1.5px;
+}
+
+.nav-link:hover {
+    color: #F4DB7D;
+}
+
+.toggle {
+    background: none;
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px) scaleX(2);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px) scaleX(2);
+    margin-left: 0px;
+}
+
+@keyframes navLinkAnimate {
+    from {
+        opacity: 0;
+        transform: translate(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0px);
+    }
+}
+
+/* Top Photographers */
+
+.top-photographers {
+    width: 20%;
+    height: 50vh;
+    transform: translateY(50%);
+    border: 2px solid #9DAAF2;
+    background-size: contain;
+    position: relative;
+}
+
+.top-photography-title {
+    color: #F4DB7D  ;
+    width: 100%;
+    max-width: 58rem;
+    text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.top-photography-title h2 {
+    letter-spacing: 2px;
+    text-decoration: underline;
+    font-size: 2rem;
+    font-weight: 400;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.top-photographers-list {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 2rem;
+    left: 4rem;
+    display: inline;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-photographers-item {
+    font-size: 1.5rem;
+    margin: 2.2rem 0;
+}
+
+.top-photographers-item p {
+    font-size: 1.2rem;
+}
+
+/* Recent Comments */
+
+.recent-comments {
+    width: 20%;
+    height: 50vh;
+    right: 0;
+    top: 0;
+    transform: translateY(50%);
+    border: 2px solid #9DAAF2;
+    background-size: contain;
+    position: absolute;
+}
+
+.recent-comments-title {
+    color: #F4DB7D  ;
+    width: 100%;
+    max-width: 58rem;
+    text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.recent-comments-title h2 {
+    letter-spacing: 2px;
+    text-decoration: underline;
+    font-size: 2rem;
+    font-weight: 400;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.recent-comments-list {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 2rem;
+    left: 4rem;
+    display: inline;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recent-comments-item {
+    font-size: 1.5rem;
+    margin: 2.2rem 0;
+}
+
+.recent-comments-item p {
+    font-size: 1.2rem;
+}
