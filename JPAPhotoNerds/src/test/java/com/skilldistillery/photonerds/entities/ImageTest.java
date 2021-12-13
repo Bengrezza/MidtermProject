@@ -12,10 +12,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class ImageTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;	
+	private Gallery gallery;	
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -30,27 +30,24 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		gallery = em.find(Gallery.class, 1);
 		}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		gallery = null;
 		
 	}
 
 	@Test
-	void test() {
-		assertNotNull(user);
-		assertEquals("billyjoe", user.getUsername());
-		assertEquals("goat", user.getPassword());
-		assertEquals(1, user.getEnabled());
-		assertEquals("basic", user.getRole());
-		assertEquals("billydagoat@gmail.com", user.getEmail());
-		assertEquals(2021, user.getJoinDate().getYear());
-		assertEquals(12, user.getJoinDate().getMonthValue());
-		assertEquals(11, user.getJoinDate().getDayOfMonth());
+	void test_Gallery() {
+		assertNotNull(gallery);
+		assertEquals(1, gallery.getId());
+		assertEquals("Basic Display", gallery.getTitle());
+		assertEquals("A collections of photos taken", gallery.getDescription());
+		
+		
 	}
 
 }

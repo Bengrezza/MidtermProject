@@ -7,7 +7,15 @@
 		
 		<class>com.skilldistillery.photonerds.entities.Address</class>
 		<class>com.skilldistillery.photonerds.entities.Contract</class>
+		<class>com.skilldistillery.photonerds.entities.ContractMessage</class>
+		<class>com.skilldistillery.photonerds.entities.ContractHasPhotographer</class>
+		<class>com.skilldistillery.photonerds.entities.ContractHasPhotographerId</class>
+		<class>com.skilldistillery.photonerds.entities.Country</class>
+		<class>com.skilldistillery.photonerds.entities.Gallery</class>
+		<class>com.skilldistillery.photonerds.entities.Image</class>
+		<class>com.skilldistillery.photonerds.entities.Payment</class>
 		<class>com.skilldistillery.photonerds.entities.Photographer</class>
+		<class>com.skilldistillery.photonerds.entities.PhotoShootType</class>
 		<class>com.skilldistillery.photonerds.entities.User</class>
 		
 		<properties>
