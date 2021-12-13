@@ -12,10 +12,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class PaymentTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;	
+	private Payment payment;	
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -30,27 +30,28 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		payment = em.find(Payment.class, 1);
 		}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		payment = null;
 		
 	}
 
 	@Test
-	void test() {
-		assertNotNull(user);
-		assertEquals("billyjoe", user.getUsername());
-		assertEquals("goat", user.getPassword());
-		assertEquals(1, user.getEnabled());
-		assertEquals("basic", user.getRole());
-		assertEquals("billydagoat@gmail.com", user.getEmail());
-		assertEquals(2021, user.getJoinDate().getYear());
-		assertEquals(12, user.getJoinDate().getMonthValue());
-		assertEquals(11, user.getJoinDate().getDayOfMonth());
+	void test_Payment() {
+		assertNotNull(payment);
+		assertEquals(1, payment.getId());
+		assertEquals(2021, payment.getPaymentDate().getYear());
+		assertEquals(12, payment.getPaymentDate().getMonthValue());
+		assertEquals(11, payment.getPaymentDate().getDayOfMonth());
+		assertEquals(16, payment.getPaymentDate().getHour());
+		assertEquals(10, payment.getPaymentDate().getMinute());
+		assertEquals(200.75, payment.getAmount());
+		
+		
 	}
 
 }
