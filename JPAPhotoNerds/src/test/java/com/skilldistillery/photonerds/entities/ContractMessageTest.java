@@ -12,10 +12,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class ContractMessageTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;	
+	private ContractMessage cmt;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -30,27 +30,24 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
-		}
+		cmt = em.find(ContractMessage.class, 1);
+	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
-		
+		cmt = null;
+
 	}
 
 	@Test
-	void test() {
-		assertNotNull(user);
-		assertEquals("billyjoe", user.getUsername());
-		assertEquals("goat", user.getPassword());
-		assertEquals(1, user.getEnabled());
-		assertEquals("basic", user.getRole());
-		assertEquals("billydagoat@gmail.com", user.getEmail());
-		assertEquals(2021, user.getJoinDate().getYear());
-		assertEquals(12, user.getJoinDate().getMonthValue());
-		assertEquals(11, user.getJoinDate().getDayOfMonth());
+	void test_ContractMessageTest() {
+		assertNotNull(cmt);
+//		assertEquals(2, cmt.getId());
+//		assertEquals("second test message", cmt.getMessage());
+//		assertEquals(1, cmt.getReply());
+		assertNull(cmt.getReply());
+
 	}
 
 }
