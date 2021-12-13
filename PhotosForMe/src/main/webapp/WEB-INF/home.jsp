@@ -7,7 +7,7 @@ pageEncoding="UTF-8"%>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Photography For Me | Find Photographers Easy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
   </head>
   <body>
     <header>
@@ -37,7 +37,7 @@ pageEncoding="UTF-8"%>
               </a>
             </li>
             <li class="nav-item">
-              <a href="login.do" class="nav-link">Login/Register</a>
+              <a href="login" class="nav-link">Login/Register</a>
             </li>
             <li class="nav-item">
               <a href="gallery.do" class="nav-link">Photographers</a>
