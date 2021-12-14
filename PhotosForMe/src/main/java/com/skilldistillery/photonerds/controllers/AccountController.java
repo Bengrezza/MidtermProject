@@ -12,7 +12,7 @@ public class AccountController {
 	@Autowired
 	private UserDAO userDAO;
 	
-	@RequestMapping(path="login.do")
+	@RequestMapping(path="account")
 	public String accountPage() {
 		
 		return "account";
