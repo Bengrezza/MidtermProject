@@ -1,0 +1,27 @@
+@import "navbar.css";
+
+.input {
+	position: absolute;
+	left: 50%;
+    transform: translate(-50%, 66%);
+}
+
+.input label{
+	font-size: 1.4rem;
+	letter-spacing: 2px;
+	font-weight: 400;
+	left: 50%;
+}
+
+.input button {
+	position: absolute;
+	left: 50%;
+    transform: translate(-50%, 66%);
+}
+
+.home-btn {
+	position: absolute;
+	left: 50%;
+	top: 50%;	
+	transform: translate(-50%, -80%);
+}
