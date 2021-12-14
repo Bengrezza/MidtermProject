@@ -53,4 +53,10 @@ class ContractTest {
 
 	}
 
+	@Test
+	void test_Contract_OneToMany_ContractMessage_mapping() {
+		assertNotNull(contract.getContractMessages());
+		assertEquals("Testing message", contract.getContractMessages().get(0).getMessage());
+	}
+
 }

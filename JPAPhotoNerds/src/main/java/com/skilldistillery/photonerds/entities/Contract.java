@@ -2,6 +2,7 @@ package com.skilldistillery.photonerds.entities;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -9,6 +10,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Contract {
@@ -30,6 +36,17 @@ public class Contract {
 	private LocalDate photoDeliveryBy;
 	@Column(name = "closed")
 	private int closed;
+
+	@ManyToMany
+	@JoinTable(name = "contract_has_photographer", joinColumns = @JoinColumn(name = "photographer_id"), inverseJoinColumns = @JoinColumn(name = "contract_id"))
+	private List<Photographer> photographers;
+
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+
+	@OneToMany(mappedBy = "contract")
+	private List<ContractMessage> contractMessages;
 
 	public Contract() {
 
@@ -99,9 +116,34 @@ public class Contract {
 		this.closed = closed;
 	}
 
+	public List<Photographer> getPhotographers() {
+		return photographers;
+	}
+
+	public void setPhotographers(List<Photographer> photographers) {
+		this.photographers = photographers;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<ContractMessage> getContractMessages() {
+		return contractMessages;
+	}
+
+	public void setContractMessages(List<ContractMessage> contractMessages) {
+		this.contractMessages = contractMessages;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(closed, description, eventEnd, eventStart, id, location, photoDeliveryBy, title);
+		return Objects.hash(closed, contractMessages, description, eventEnd, eventStart, id, location, photoDeliveryBy,
+				photographers, title, user);
 	}
 
 	@Override
@@ -113,17 +155,20 @@ public class Contract {
 		if (getClass() != obj.getClass())
 			return false;
 		Contract other = (Contract) obj;
-		return closed == other.closed && Objects.equals(description, other.description)
-				&& Objects.equals(eventEnd, other.eventEnd) && Objects.equals(eventStart, other.eventStart)
-				&& id == other.id && Objects.equals(location, other.location)
-				&& Objects.equals(photoDeliveryBy, other.photoDeliveryBy) && Objects.equals(title, other.title);
+		return closed == other.closed && Objects.equals(contractMessages, other.contractMessages)
+				&& Objects.equals(description, other.description) && Objects.equals(eventEnd, other.eventEnd)
+				&& Objects.equals(eventStart, other.eventStart) && id == other.id
+				&& Objects.equals(location, other.location) && Objects.equals(photoDeliveryBy, other.photoDeliveryBy)
+				&& Objects.equals(photographers, other.photographers) && Objects.equals(title, other.title)
+				&& Objects.equals(user, other.user);
 	}
 
 	@Override
 	public String toString() {
 		return "Contract [id=" + id + ", title=" + title + ", description=" + description + ", location=" + location
 				+ ", eventStart=" + eventStart + ", eventEnd=" + eventEnd + ", photoDeliveryBy=" + photoDeliveryBy
-				+ ", closed=" + closed + "]";
+				+ ", closed=" + closed + ", photographers=" + photographers + ", user=" + user + ", contractMessages="
+				+ contractMessages + "]";
 	}
 
 }

@@ -50,5 +50,12 @@ class AddressTest {
 		assertEquals(53291, address.getPostalCode());
 		assertEquals("123456789", address.getPhone());
 	}
+	
+	@Test
+	void test_Address_Country_ManyToOne_relationship_mapping() {
+		assertNotNull(address);
+		assertEquals("US", address.getCountry().getId());
+		assertEquals("United States", address.getCountry().getName());
+	}
 
 }

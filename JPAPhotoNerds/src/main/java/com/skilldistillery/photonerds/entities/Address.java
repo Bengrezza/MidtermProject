@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
@@ -24,6 +27,13 @@ public class Address {
 	@Column(name = "postal_code")
 	private int postalCode;
 	private String phone;
+
+	@OneToOne(mappedBy = "address")
+	private User user;
+
+	@ManyToOne
+	@JoinColumn(name = "country_id")
+	private Country country;
 
 	public Address() {
 	}
@@ -84,6 +94,22 @@ public class Address {
 		this.phone = phone;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Country getCountry() {
+		return country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(city, id, phone, postalCode, state, street, street2);
@@ -108,7 +134,5 @@ public class Address {
 		return "Address [street=" + street + ", street2=" + street2 + ", state=" + state + ", city=" + city
 				+ ", postalCode=" + postalCode + ", phone=" + phone + "]";
 	}
-	
-	
 
 }

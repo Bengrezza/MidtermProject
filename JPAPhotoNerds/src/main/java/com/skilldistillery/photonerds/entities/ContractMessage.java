@@ -8,12 +8,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "contract_message")
 public class ContractMessage {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -23,9 +25,17 @@ public class ContractMessage {
 	private LocalDateTime messageDate;
 	@Column(name = "in_reply_to")
 	private Integer reply;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "contract_id")
+	private Contract contract;
+
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+
 	public ContractMessage() {
-		
+
 	}
 
 	public int getId() {
@@ -60,9 +70,25 @@ public class ContractMessage {
 		this.reply = reply;
 	}
 
+	public Contract getContract() {
+		return contract;
+	}
+
+	public void setContract(Contract contract) {
+		this.contract = contract;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, messageDate, message, reply);
+		return Objects.hash(contract, id, message, messageDate, reply, user);
 	}
 
 	@Override
@@ -74,16 +100,15 @@ public class ContractMessage {
 		if (getClass() != obj.getClass())
 			return false;
 		ContractMessage other = (ContractMessage) obj;
-		return id == other.id && Objects.equals(messageDate, other.messageDate)
-				&& Objects.equals(message, other.message) && reply == other.reply;
+		return Objects.equals(contract, other.contract) && id == other.id && Objects.equals(message, other.message)
+				&& Objects.equals(messageDate, other.messageDate) && Objects.equals(reply, other.reply)
+				&& Objects.equals(user, other.user);
 	}
 
 	@Override
 	public String toString() {
-		return "ContractMessage [id=" + id + ", messsage=" + message + ", messageDate=" + messageDate + ", reply="
-				+ reply + "]";
+		return "ContractMessage [id=" + id + ", message=" + message + ", messageDate=" + messageDate + ", reply="
+				+ reply + ", contract=" + contract + ", user=" + user + "]";
 	}
-	
-	
 
 }

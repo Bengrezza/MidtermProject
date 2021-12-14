@@ -49,4 +49,12 @@ class ContractHasPhotographerTest {
 
 	}
 
+	@Test
+	void test_Contract_Has_Photographer_To_Payment_mapping() {
+		assertNotNull(chp);
+		assertNotNull(chp.getPayments().get(0).getAmount());
+		assertEquals(200.75, chp.getPayments().get(0).getAmount());
+
+	}
+
 }

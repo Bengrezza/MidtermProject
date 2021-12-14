@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 class ImageTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Gallery gallery;	
+	private Image image;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -30,24 +30,25 @@ class ImageTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		gallery = em.find(Gallery.class, 1);
-		}
+		image = em.find(Image.class, 1);
+	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		gallery = null;
-		
+		image = null;
+
 	}
 
+	// still need to make image entity test
 	@Test
-	void test_Gallery() {
-		assertNotNull(gallery);
-		assertEquals(1, gallery.getId());
-		assertEquals("Basic Display", gallery.getTitle());
-		assertEquals("A collections of photos taken", gallery.getDescription());
-		
-		
+	void test_Image() {
+		assertNotNull(image);
+		assertEquals(1, image.getId());
+		assertEquals("First photo", image.getTitle());
+		assertEquals(2021, image.getUploadDate().getYear());
+		assertNotNull(image.getUrlLink());
+
 	}
 
 }
