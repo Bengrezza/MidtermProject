@@ -52,5 +52,22 @@ class UserTest {
 		assertEquals(12, user.getJoinDate().getMonthValue());
 		assertEquals(11, user.getJoinDate().getDayOfMonth());
 	}
+	
+	@Test
+	void test_User_To_Address_Mapping() {
+		assertNotNull(user);
+		assertEquals("Portland", user.getAddress().getCity());
+	}
+	@Test
+	void test_User_To_Contract_Mapping() {
+		assertNotNull(user.getContracts());
+		assertEquals(1, user.getContracts().get(0).getUser().getId());
+	}
+	@Test
+	void test_User_To_ContractMessage_Mapping() {
+		assertNotNull(user.getContractMessages());
+		assertEquals("Testing message", user.getContractMessages().get(0).getMessage());
+		assertEquals(2021, user.getContractMessages().get(0).getMessageDate().getYear());
+	}
 
 }

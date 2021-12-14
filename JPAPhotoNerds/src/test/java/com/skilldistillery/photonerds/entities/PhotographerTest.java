@@ -47,5 +47,34 @@ class PhotographerTest {
 		assertEquals("Picture Perfect", photographer.getBusiness());
 		assertEquals("Capturing moments for a life time to see!", photographer.getDescription());
 	}
+	
+	@Test
+	void test_Photographer_OneToOne_User_mapping() {
+		assertNotNull(photographer);
+		assertEquals("pete", photographer.getUser().getFirstName());
+		
+		
+	}
+	
+	@Test
+	void test_Photographer_OneToMany_Gallery_mapping() {
+		assertNotNull(photographer);
+		assertNotNull(photographer.getGallery());
+		assertEquals("Basic Display", photographer.getGallery().get(0).getTitle());
+	}
+	
+	@Test
+	void test_Photographer_PhotoShootType_ManyToMany_mapping() {
+		assertNotNull(photographer);
+		assertNotNull(photographer.getPhotoShootTypes());
+		assertEquals("Weddings", photographer.getPhotoShootTypes().get(0).getName());
+	}
+	@Test
+	void test_Photographer_Contract_ManyToMany_mapping() {
+		assertNotNull(photographer);
+		assertNotNull(photographer.getContracts());
+		assertEquals("30 min session", photographer.getContracts().get(0).getDescription());
+		assertEquals("Family Photo ", photographer.getContracts().get(0).getTitle());
+	}
 
 }

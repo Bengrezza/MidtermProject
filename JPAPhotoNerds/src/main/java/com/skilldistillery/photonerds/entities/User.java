@@ -1,6 +1,7 @@
 package com.skilldistillery.photonerds.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -31,7 +35,19 @@ public class User {
 	private String firstName;
 	@Column(name = "last_name")
 	private String lastName;
-	
+
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
+
+	@OneToOne(mappedBy = "user")
+	private Photographer photographer;
+
+	@OneToMany(mappedBy = "user")
+	private List<Contract> contracts;
+
+	@OneToMany(mappedBy = "user")
+	private List<ContractMessage> contractMessages;
 
 	public int getId() {
 		return id;
@@ -48,8 +64,6 @@ public class User {
 	public void setUsername(String userName) {
 		this.username = userName;
 	}
-	
-	
 
 	public String getPassword() {
 		return password;
@@ -107,9 +121,42 @@ public class User {
 		this.lastName = lastName;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public Photographer getPhotographer() {
+		return photographer;
+	}
+
+	public void setPhotographer(Photographer photographer) {
+		this.photographer = photographer;
+	}
+
+	public List<Contract> getContracts() {
+		return contracts;
+	}
+
+	public void setContracts(List<Contract> contracts) {
+		this.contracts = contracts;
+	}
+
+	public List<ContractMessage> getContractMessages() {
+		return contractMessages;
+	}
+
+	public void setContractMessages(List<ContractMessage> contractMessages) {
+		this.contractMessages = contractMessages;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(email, enabled, firstName, id, joinDate, lastName, password, role, username);
+		return Objects.hash(address, contractMessages, contracts, email, enabled, firstName, id, joinDate, lastName,
+				password, photographer, role, username);
 	}
 
 	@Override
@@ -121,19 +168,20 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return Objects.equals(email, other.email) && enabled == other.enabled
-				&& Objects.equals(firstName, other.firstName) && id == other.id
+		return Objects.equals(address, other.address) && Objects.equals(contractMessages, other.contractMessages)
+				&& Objects.equals(contracts, other.contracts) && Objects.equals(email, other.email)
+				&& enabled == other.enabled && Objects.equals(firstName, other.firstName) && id == other.id
 				&& Objects.equals(joinDate, other.joinDate) && Objects.equals(lastName, other.lastName)
-				&& Objects.equals(password, other.password) && Objects.equals(role, other.role)
-				&& Objects.equals(username, other.username);
+				&& Objects.equals(password, other.password) && Objects.equals(photographer, other.photographer)
+				&& Objects.equals(role, other.role) && Objects.equals(username, other.username);
 	}
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
 				+ ", role=" + role + ", email=" + email + ", joinDate=" + joinDate + ", firstName=" + firstName
-				+ ", lastName=" + lastName + "]";
+				+ ", lastName=" + lastName + ", address=" + address + ", photographer=" + photographer + ", contracts="
+				+ contracts + ", contractMessages=" + contractMessages + "]";
 	}
-	
-	
+
 }

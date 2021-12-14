@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 class GalleryTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Address address;	
+	private Gallery gallery;	
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -30,25 +30,26 @@ class GalleryTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		address = em.find(Address.class, 1);
+		gallery = em.find(Gallery.class, 1);
 		}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		address = null;
+		gallery = null;
 		
 	}
 
 	@Test
-	void test_Address() {
-		assertNotNull(address);
-		assertEquals("10435 walle dr", address.getStreet());
-		assertNull(address.getStreet2());
-		assertEquals("Portland", address.getCity());
-		assertEquals("OR", address.getState());
-		assertEquals(53291, address.getPostalCode());
-		assertEquals("123456789", address.getPhone());
+	void test_Gallery() {
+		assertNotNull(gallery);
+		assertEquals("Basic Display", gallery.getTitle());
+	}
+	
+	@Test
+	void test_Gallery_Image_ManyToMany_mapping() {
+		assertNotNull(gallery);
+		assertEquals("First photo", gallery.getImages().get(0).getTitle());
 	}
 
 }
