@@ -1,10 +1,12 @@
 package com.skilldistillery.photonerds.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +22,9 @@ public class ContractHasPhotographer {
 	private String comment;
 	@Column(name = "price")
 	private double price;
+
+	@OneToMany(mappedBy = "contracthasphotographer")
+	private List<Payment> payments;
 
 	public ContractHasPhotographer() {
 
@@ -57,9 +62,17 @@ public class ContractHasPhotographer {
 		this.price = price;
 	}
 
+	public List<Payment> getPayments() {
+		return payments;
+	}
+
+	public void setPayments(List<Payment> payments) {
+		this.payments = payments;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(comment, id, price, rating);
+		return Objects.hash(comment, id, payments, price, rating);
 	}
 
 	@Override
@@ -72,13 +85,14 @@ public class ContractHasPhotographer {
 			return false;
 		ContractHasPhotographer other = (ContractHasPhotographer) obj;
 		return Objects.equals(comment, other.comment) && Objects.equals(id, other.id)
+				&& Objects.equals(payments, other.payments)
 				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price) && rating == other.rating;
 	}
 
 	@Override
 	public String toString() {
 		return "ContractHasPhotographer [id=" + id + ", rating=" + rating + ", comment=" + comment + ", price=" + price
-				+ "]";
+				+ ", payments=" + payments + "]";
 	}
 
 }

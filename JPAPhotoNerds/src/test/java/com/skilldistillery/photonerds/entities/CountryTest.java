@@ -41,7 +41,7 @@ class CountryTest {
 	}
 
 	@Test
-	void test_Address() {
+	void test_Country() {
 		assertNotNull(country);
 		assertEquals("US", country.getId());
 		assertEquals("United States", country.getName());

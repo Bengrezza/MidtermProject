@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Payment {
@@ -20,6 +22,11 @@ public class Payment {
 	private LocalDateTime paymentDate;
 	@Column(name = "amount")
 	private double amount;
+
+	@ManyToOne
+	@JoinColumn(name = "contract_has_photographer_contract_id")
+	@JoinColumn(name = "contract_has_photographer_photographer_id")
+	private ContractHasPhotographer contracthasphotographer;
 
 	public Payment() {
 
@@ -41,8 +48,6 @@ public class Payment {
 		this.paymentDate = paymentDate;
 	}
 
-	
-
 	public double getAmount() {
 		return amount;
 	}
@@ -53,10 +58,8 @@ public class Payment {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(amount, id, paymentDate);
+		return Objects.hash(amount, contracthasphotographer, id, paymentDate);
 	}
-
-	
 
 	@Override
 	public boolean equals(Object obj) {
@@ -67,15 +70,15 @@ public class Payment {
 		if (getClass() != obj.getClass())
 			return false;
 		Payment other = (Payment) obj;
-		return Double.doubleToLongBits(amount) == Double.doubleToLongBits(other.amount) && id == other.id
+		return Double.doubleToLongBits(amount) == Double.doubleToLongBits(other.amount)
+				&& Objects.equals(contracthasphotographer, other.contracthasphotographer) && id == other.id
 				&& Objects.equals(paymentDate, other.paymentDate);
 	}
 
 	@Override
 	public String toString() {
-		return "Payment [id=" + id + ", paymentDate=" + paymentDate + ", amount=" + amount + "]";
+		return "Payment [id=" + id + ", paymentDate=" + paymentDate + ", amount=" + amount
+				+ ", contracthasphotographer=" + contracthasphotographer + "]";
 	}
-
-	
 
 }
