@@ -20,7 +20,7 @@ public class LoginController {
 	@RequestMapping(path="login.do")
 	public String loginAction() {
 		
-		return "login";
+		return "account";
 	}
 	
 }
