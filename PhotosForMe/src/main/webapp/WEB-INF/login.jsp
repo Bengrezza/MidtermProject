@@ -5,7 +5,7 @@
 <head>
 <link rel="stylesheet" type="text/css" media="screen" href="styles/login.css" />
 <meta charset="UTF-8">
-<title>Login Page</title>
+<title>Login Page | Photography For Me</title>
 </head>
 <body>
 <jsp:include page="navbar.jsp" />

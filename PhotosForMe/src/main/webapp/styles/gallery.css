@@ -1,0 +1,49 @@
+@import "navbar.css";
+
+.photographers {
+    width: 100%;
+    max-width: 80rem;
+    margin: auto;
+    margin-bottom: 1.2rem;
+}
+
+.photographers .container {
+	transform: translate(0%, 90%);
+	max-height: 200px;
+    display: flex;
+    align-items: center;
+    border-top: 2px solid #9DAAF2;
+    border-bottom: 2px solid #9DAAF2;
+}
+
+.photographer-img img {
+    height: 8rem;
+    width: auto;
+    border-radius: 50%;
+    margin: 0 2rem;
+    box-shadow: 0 20px 30px 0 rgba(0, 255, 255, 0.15);
+}
+
+.photographer-gallery {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+
+.photographer-gallery img {
+    height: 12rem;
+    width: auto;
+}
+
+.caption {
+	text-align: center;
+    display: block;
+}
+
+h2 {
+	position: absolute;
+	width: 100%;
+	top: 11%;
+	align-items: center;
+	text-align: center;
+}
