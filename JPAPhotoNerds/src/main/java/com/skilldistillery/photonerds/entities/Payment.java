@@ -56,6 +56,14 @@ public class Payment {
 		this.amount = amount;
 	}
 
+	public ContractHasPhotographer getContracthasphotographer() {
+		return contracthasphotographer;
+	}
+
+	public void setContracthasphotographer(ContractHasPhotographer contracthasphotographer) {
+		this.contracthasphotographer = contracthasphotographer;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(amount, contracthasphotographer, id, paymentDate);

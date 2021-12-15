@@ -1,5 +1,6 @@
 package com.skilldistillery.photonerds.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -33,7 +34,7 @@ public class Photographer {
 	private User user;
 
 	@OneToMany(mappedBy = "photographer")
-	private List<Gallery> gallery;
+	private List<Gallery> galleries;
 
 	@ManyToMany(mappedBy = "photographers")
 	private List<PhotoShootType> photoShootTypes;
@@ -94,11 +95,11 @@ public class Photographer {
 	}
 
 	public List<Gallery> getGallery() {
-		return gallery;
+		return galleries;
 	}
 
 	public void setGallery(List<Gallery> gallery) {
-		this.gallery = gallery;
+		this.galleries = gallery;
 	}
 
 	public List<PhotoShootType> getPhotoShootTypes() {
@@ -117,9 +118,44 @@ public class Photographer {
 		this.contracts = contracts;
 	}
 
+	public void addGallery(Gallery gallery) {
+		if (galleries == null) {
+			galleries = new ArrayList<>();
+		}
+		if (!galleries.contains(gallery)) {
+			galleries.add(gallery);
+			gallery.setPhotographer(this);
+		}
+	}
+
+	public void removeGallery(Gallery gallery) {
+		if (galleries != null && galleries.contains(gallery)) {
+			galleries.remove(gallery);
+			gallery.setPhotographer(this);
+		}
+	}
+	
+	public void addPhotoShootType(PhotoShootType photoShootType) {
+		if (photoShootTypes == null) {
+			photoShootTypes = new ArrayList<>();
+		}
+		if (!photoShootTypes.contains(photoShootType)) {
+			photoShootTypes.add(photoShootType);
+			photoShootType.addPhotographer(this);
+		}
+	}
+
+	public void removePhotoShootType(PhotoShootType photoShootType) {
+		if (photoShootTypes != null && photoShootTypes.contains(photoShootType)) {
+			photoShootTypes.remove(photoShootType);
+			photoShootType.removePhotographer(this);
+		}
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(active, business, businessLogo, contracts, description, gallery, id, photoShootTypes, user);
+		return Objects.hash(active, business, businessLogo, contracts, description, galleries, id, photoShootTypes,
+				user);
 	}
 
 	@Override
@@ -133,7 +169,7 @@ public class Photographer {
 		Photographer other = (Photographer) obj;
 		return active == other.active && Objects.equals(business, other.business)
 				&& Objects.equals(businessLogo, other.businessLogo) && Objects.equals(contracts, other.contracts)
-				&& Objects.equals(description, other.description) && Objects.equals(gallery, other.gallery)
+				&& Objects.equals(description, other.description) && Objects.equals(galleries, other.galleries)
 				&& id == other.id && Objects.equals(photoShootTypes, other.photoShootTypes)
 				&& Objects.equals(user, other.user);
 	}
@@ -141,7 +177,7 @@ public class Photographer {
 	@Override
 	public String toString() {
 		return "Photographer [id=" + id + ", active=" + active + ", business=" + business + ", description="
-				+ description + ", businessLogo=" + businessLogo + ", user=" + user + ", gallery=" + gallery
+				+ description + ", businessLogo=" + businessLogo + ", user=" + user + ", gallery=" + galleries
 				+ ", photoShootTypes=" + photoShootTypes + ", contracts=" + contracts + "]";
 	}
 

@@ -38,7 +38,7 @@ public class Contract {
 	private int closed;
 
 	@ManyToMany
-	@JoinTable(name = "contract_has_photographer", joinColumns = @JoinColumn(name = "photographer_id"), inverseJoinColumns = @JoinColumn(name = "contract_id"))
+	@JoinTable(name = "contract_has_photographer", joinColumns = @JoinColumn(name = "contract_id"), inverseJoinColumns = @JoinColumn(name = "photographer_id"))
 	private List<Photographer> photographers;
 
 	@ManyToOne

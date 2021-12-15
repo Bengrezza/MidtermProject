@@ -76,5 +76,35 @@ class PhotographerTest {
 		assertEquals("30 min session", photographer.getContracts().get(0).getDescription());
 		assertEquals("Family Photo ", photographer.getContracts().get(0).getTitle());
 	}
+	
+	@Test
+	void test_Photographer_PhotoShootType_add_method() {
+		assertNotNull(photographer);
+		photographer.addPhotoShootType(new PhotoShootType());
+		assertNull(photographer.getPhotoShootTypes().get(1).getName());
+		photographer.getPhotoShootTypes().get(1).setName("Family");
+		assertEquals("Family", photographer.getPhotoShootTypes().get(1).getName());
+	}
+	
+	@Test
+	void test_Photographer_PhotoShootType_remove_method() {
+		assertNotNull(photographer);
+		photographer.removePhotoShootType(photographer.getPhotoShootTypes().get(0));
+		assertTrue(photographer.getPhotoShootTypes().isEmpty());
+	}
+	
+	@Test
+	void test_Photographer_AddGallery_method() {
+		assertNotNull(photographer.getGallery());
+		photographer.addGallery(new Gallery());
+		assertTrue(photographer.getGallery().size() > 1);
+	}
+	
+	@Test
+	void test_Photographer_RemoveGallery_method() {
+		assertNotNull(photographer.getGallery());
+		photographer.removeGallery(photographer.getGallery().get(0));
+		assertTrue(photographer.getGallery().size() == 0);
+	}
 
 }

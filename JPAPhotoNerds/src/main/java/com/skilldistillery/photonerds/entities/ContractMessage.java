@@ -50,8 +50,8 @@ public class ContractMessage {
 		return message;
 	}
 
-	public void setMessage(String messsage) {
-		this.message = messsage;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	public LocalDateTime getMessageDate() {
@@ -85,6 +85,7 @@ public class ContractMessage {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
 
 	@Override
 	public int hashCode() {

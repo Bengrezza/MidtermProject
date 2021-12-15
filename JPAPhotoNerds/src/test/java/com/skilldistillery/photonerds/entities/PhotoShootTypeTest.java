@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 class PhotoShootTypeTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private PhotoShootType pst;	
+	private PhotoShootType pst;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -31,13 +31,13 @@ class PhotoShootTypeTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 		pst = em.find(PhotoShootType.class, 1);
-		}
+	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
 		pst = null;
-		
+
 	}
 
 	@Test
@@ -45,7 +45,8 @@ class PhotoShootTypeTest {
 		assertNotNull(pst);
 		assertEquals(1, pst.getId());
 		assertEquals("Weddings", pst.getName());
-		
+	
+
 	}
 
 }

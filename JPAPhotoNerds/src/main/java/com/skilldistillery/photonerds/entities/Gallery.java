@@ -1,5 +1,6 @@
 package com.skilldistillery.photonerds.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -26,7 +27,7 @@ public class Gallery {
 	@ManyToOne
 	@JoinColumn(name = "photographer_id")
 	private Photographer photographer;
-	
+
 	@ManyToMany(mappedBy = "galleries")
 	private List<Image> images;
 
@@ -65,7 +66,6 @@ public class Gallery {
 	public void setPhotographer(Photographer photographer) {
 		this.photographer = photographer;
 	}
-	
 
 	public List<Image> getImages() {
 		return images;
@@ -75,9 +75,32 @@ public class Gallery {
 		this.images = images;
 	}
 
+	public void addImage(Image image) {
+		if (images == null) {
+			images = new ArrayList<>();
+		}
+		if (!images.contains(image)) {
+			images.add(image);
+			image.addGallery(this);
+		}
+	}
+
+	public void removeImage(Image image) {
+		if (images != null && images.contains(image)) {
+			images.remove(image);
+			image.removeGallery(this);
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "Gallery [id=" + id + ", title=" + title + ", description=" + description + ", photographer="
+				+ photographer + ", images=" + images + "]";
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(description, id, images, photographer, title);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -89,14 +112,7 @@ public class Gallery {
 		if (getClass() != obj.getClass())
 			return false;
 		Gallery other = (Gallery) obj;
-		return Objects.equals(description, other.description) && id == other.id && Objects.equals(images, other.images)
-				&& Objects.equals(photographer, other.photographer) && Objects.equals(title, other.title);
-	}
-
-	@Override
-	public String toString() {
-		return "Gallery [id=" + id + ", title=" + title + ", description=" + description + ", photographer="
-				+ photographer + ", images=" + images + "]";
+		return id == other.id;
 	}
 
 }

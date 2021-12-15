@@ -1,5 +1,6 @@
 package com.skilldistillery.photonerds.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -68,6 +69,23 @@ public class ContractHasPhotographer {
 
 	public void setPayments(List<Payment> payments) {
 		this.payments = payments;
+	}
+
+	public void addPayment(Payment payment) {
+		if (payments == null) {
+			payments = new ArrayList<>();
+		}
+		if (!payments.contains(payment)) {
+			payments.add(payment);
+			payment.setContracthasphotographer(this);
+		}
+	}
+
+	public void removePayment(Payment payment) {
+		if (payment != null && payments.contains(payment)) {
+			payments.remove(payment);
+			payment.setContracthasphotographer(this);
+		}
 	}
 
 	@Override

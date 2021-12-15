@@ -57,4 +57,14 @@ class ContractHasPhotographerTest {
 
 	}
 
+	@Test
+	void test_ContractHasPhotographer_AddPayment_method() {
+		assertNotNull(chp);
+		chp.addPayment(new Payment());
+		assertTrue(chp.getPayments().size() > 1);
+		assertEquals(0.0, chp.getPayments().get(1).getAmount());
+		chp.getPayments().get(1).setAmount(42);
+		assertTrue(chp.getPayments().get(1).getAmount() == 42);
+	}
+
 }
