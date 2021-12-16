@@ -41,7 +41,7 @@ class UserTest {
 	}
 
 	@Test
-	void test() {
+	void test_User() {
 		assertNotNull(user);
 		assertEquals("billyjoe", user.getUsername());
 		assertEquals("goat", user.getPassword());
@@ -68,6 +68,22 @@ class UserTest {
 		assertNotNull(user.getContractMessages());
 		assertEquals("Testing message", user.getContractMessages().get(0).getMessage());
 		assertEquals(2021, user.getContractMessages().get(0).getMessageDate().getYear());
+	}
+	
+	@Test
+	void test_User_AddContract_method() {
+		assertNotNull(user.getContracts());
+		user.addContract(new Contract());
+		assertTrue(user.getContracts().size() > 1);
+	}
+	
+	@Test
+	void test_User_AddContractMessage_method() {
+		assertNotNull(user.getContractMessages());
+		user.addContractMessage(new ContractMessage());
+		assertTrue(user.getContractMessages().size() == 2);
+		user.getContractMessages().get(1).setMessage("It works whoever is reading this");
+		assertEquals("It works whoever is reading this", user.getContractMessages().get(1).getMessage());
 	}
 
 }

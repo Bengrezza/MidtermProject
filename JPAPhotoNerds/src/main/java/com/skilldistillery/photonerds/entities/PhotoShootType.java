@@ -1,5 +1,6 @@
 package com.skilldistillery.photonerds.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -24,7 +25,7 @@ public class PhotoShootType {
 	private String name;
 
 	@ManyToMany
-	@JoinTable(name = "photo_shoot_style_has_photographer", joinColumns = @JoinColumn(name = "photographer_id"), inverseJoinColumns = @JoinColumn(name = "photo_shoot_type_id"))
+	@JoinTable(name = "photo_shoot_style_has_photographer", joinColumns = @JoinColumn(name = "photo_shoot_type_id"), inverseJoinColumns = @JoinColumn(name = "photographer_id"))
 	private List<Photographer> photographers;
 
 	public PhotoShootType() {
@@ -58,6 +59,22 @@ public class PhotoShootType {
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, name, photographers);
+	}
+	public void addPhotographer(Photographer photographer) {
+		if (photographers == null) {
+			photographers = new ArrayList<>();
+		}
+		if (!photographers.contains(photographer)) {
+			photographers.add(photographer);
+			photographer.addPhotoShootType(this);
+		}
+	}
+
+	public void removePhotographer(Photographer photographer) {
+		if (photographers != null && photographers.contains(photographer)) {
+			photographers.remove(photographer);
+			photographer.removePhotoShootType(this);
+		}
 	}
 
 	@Override

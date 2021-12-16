@@ -51,4 +51,14 @@ class ImageTest {
 
 	}
 
+	@Test
+	void test_AddGallery_method() {
+		assertNotNull(image);
+		image.addGallery(new Gallery());
+		assertTrue(image.getGallery().size() > 1);
+		assertEquals("First photo", image.getGallery().get(1).getImages().get(0).getTitle());
+		image.getGallery().get(1).setTitle("Best wedding photos");
+		assertEquals("Best wedding photos", image.getGallery().get(1).getTitle());
+	}
+
 }

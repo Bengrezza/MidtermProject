@@ -11,12 +11,65 @@ html, body, .container {
     background: #1A2238;
     margin: none;
 }
-body{
-	margin:0;
-}
+
 /*column styling */
-#leftcolumntoprow, #leftcolumnmiddlerow, #leftcolumnbottomrow{
-	border: 2px solid #9DAAF2;
+.row{
+	
+	justify-content: center;
+}
+
+#leftcolumntoprow{
+	border:double #efdc8a;
+	border-radius: 25px;	
+	margin:12px;
+}
+
+ #leftcolumnmiddlerow, #leftcolumnbottomrow, #leftcolumntoprowphoto, leftcolumnbottomrowphoto{
+	text-align:center;
+	
+
+}
+
+.leftcolumnpage {
+ text-align: center;
+ justify-content: center;
+}
+
+.middlecolumnpage{
+	text-align:center;
+ justify-content: center;
+}
+#middlecolumntoprow, #middlecolumnmiddlerow, #middlecolumnbottomrow{
+	border: double #efdc8a;
+	border-radius: 25px;
+	margin:16px;
+	text-align:center;
+}
+
+button {
+	border-radius: 25px;
+	margin: 4px 12px;
+	cursor: pointer;
+	text-align: center;
+
+}
+#contact{
+	justify-content: center;
+	text-align: center;
+}
+#contactPhotographer{
+  background-color: #9fa9ec;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 63%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+}
+#contactPhotographer:hover{
+	background-color: #ec734b; 
 }
 /*image setting */
 .img-responsive{
@@ -24,19 +77,37 @@ body{
 	width:auto;
 	max-height:100px;
 	max-width:100px;
+
+}
+.img-responsive-profile-pic{
+		height:auto;
+	width:auto;
+	max-height:200px;
+	max-width:400px;
+	margin:auto;
+	display:block;
+	
 }
 /* NavBar Styling section */
 .navbar {
-	z-index:1;
+	z-index:1; /*keep nav bar in front of other content, layer level priorities  */
 	overflow:hidden;
-	background-color:#343a3f;
+	background-color:#9fa9ec;
 	top:0;
-	left:0;
+	left:0;/* nav bar to extend to the left and right of entire page */
 	right:0;
 	position: fixed;
 	
 }
+
+
+nav {
+	background:9fa9ec;
+}
+
 .navbar a {
+	
+  background: 9fa9ec;
   float: left;
   display: block;
   color: #ffffff;
@@ -44,9 +115,12 @@ body{
   padding: 14px 16px;
   text-decoration: none;
 }
+
 .navbar .nav-item{
-	 color: #ffffff;
+	background:9fa9ec;
+	 color: #9fa9ec;
 }
+
 .navbar a:hover {
   background: #1c2036;
   color: #eaf1ff;
@@ -65,14 +139,17 @@ body{
   color: #444;
   cursor: pointer;
   padding: 18px;
-  width: 100%;
+  width: 60%;
   border: none;
-  text-align: left;
+  text-align: center;
   outline: none;
   font-size: 15px;
   transition: 0.4s;
+  
 }
-
+#rating{
+	text-align: center;
+}
 .active, .accordion:hover {
   background-color: #ec734b; 
 }
@@ -82,4 +159,7 @@ body{
   display: none;
   background-color: #1c2036;
   overflow: hidden;
+}
+p {
+	text-align: center;
 }

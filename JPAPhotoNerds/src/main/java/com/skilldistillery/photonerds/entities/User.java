@@ -1,6 +1,7 @@
 package com.skilldistillery.photonerds.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -151,6 +152,26 @@ public class User {
 
 	public void setContractMessages(List<ContractMessage> contractMessages) {
 		this.contractMessages = contractMessages;
+	}
+
+	public void addContract(Contract contract) {
+		if (contracts == null) {
+			contracts = new ArrayList<>();
+		}
+		if (!contracts.contains(contract)) {
+			contracts.add(contract);
+			contract.setUser(this);
+		}
+	}
+
+	public void addContractMessage(ContractMessage contractMessage) {
+		if (contractMessages == null) {
+			contractMessages = new ArrayList<>();
+		}
+		if (!contractMessages.contains(contractMessage)) {
+			contractMessages.add(contractMessage);
+			contractMessage.setUser(this);
+		}
 	}
 
 	@Override
