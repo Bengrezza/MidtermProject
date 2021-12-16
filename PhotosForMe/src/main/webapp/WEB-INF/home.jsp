@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -108,6 +109,14 @@ pageEncoding="UTF-8"%>
 				</li>
 			</ul>
 		</section>
+		
+		<section id="mission-statement" class="mission-statement">
+			<div class="container">
+				<h2>Mission Statement</h2>
+				<p>"Photography For Me will connect consumers with great local photographers. It will also give local photographers a platform to manage their business and trade resources. Along the way, Photography For Me will hope to enrich lives of consumers and photographers. In pursuit of this mission, Photography For Me wants to provide the most helpful information possible about photographers to consumers, and the most seam-less business management platform for photographers."</p>
+			</div>
+		</section>
+		
 	</main>
 
     <script src="main.js"></script>

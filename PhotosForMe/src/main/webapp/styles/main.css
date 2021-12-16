@@ -289,3 +289,36 @@ nav {
 .recent-comments-item {
     font-size: 1.2rem;
 }
+
+/* Mission Statement */
+
+.mission-statement {
+    width: 100%;
+    min-height: 20vh;
+    max-width: 60rem;
+    margin: auto;
+}
+
+.mission-statement .container {
+    display: block;
+    align-items: center;
+    min-height: 20vh;
+    transform: translateY(-75%);
+}
+
+.mission-statement p {
+	font-size: 1.4rem;
+	letter-spacing: 1px;
+}
+
+.mission-statement h2 {
+	color: #FF6A3D;
+	text-align: center;
+	font-size: 2rem;
+	letter-spacing: 2px;
+    text-decoration: underline;
+    font-size: 2rem;
+    font-weight: 400;
+    overflow: hidden;
+    white-space: nowrap;
+}
