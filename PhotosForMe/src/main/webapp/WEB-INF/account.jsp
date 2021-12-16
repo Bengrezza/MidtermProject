@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,12 +23,11 @@
 <title>account page | Photography For Me</title>
 </head>
 <body>
-	<div class="navbar">
 
-		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<div class="navbar">
+		<nav class="navbar navbar-expand-sm">
 			<img src="images/logo.png" alt="Photography For Me"
-				class="img-responsive" /> <a class="navbar-brand" href="#">Brand
-				Name</a>
+				class="img-responsive" /> <a class="navbar-brand" href="home">PhotographyForMe</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#collapsibleNavbar">
 				<span class="navbar-toggler-icon"></span>
@@ -43,90 +43,150 @@
 			</div>
 		</nav>
 	</div>
+
 	<div id="container" class="container-fluid">
 		<div id="header" class="row">
-			<br> <br> <br> <br> <br>
-
+			<br> <br> <br> <br> <br> <br>
 		</div>
 		<div class="row">
-			<div id="leftcolumnpage" class="col-sm-4 my-3 border">
+
+			<div id="leftcolumnpage" class="col-sm-3">
+				<img src="images/logo.png" alt="Photography For Me"
+					class="img-responsive-profile-pic" />
+					<c:if test="${1>0 }">
+				<div class="row">
+					<div class="col-sm-12">
+						<p  id="rating">Rating(), Name, Location(city, state only) </p>
+					</div>
+				</div>
+				</c:if>
 				<div id="leftcolumntoprow" class="row">
-					<div class="col-sm-12 ">column 1 Favorite photographers,</div>
+					<div class=" d-flex justify-content-center">
+						<div class="col-sm-12 ">column 1 Favorite photographers</div>
+					</div>
+
 				</div>
-				<br> <br> <br> <br> <br> <br> <br>
-				<br> <br> <br> <br> <br> <br> <br>
-				<br> <br> <br> <br> <br> <br> <br>
-				<br>
+
 				<div id="leftcolumnmiddlerow" class="row">
-					<button class="accordion">active contract(s)(drop down
-						menu of messages)</button>
+					<button class="accordion">Open contract(s)</button>
 					<div class="panel">
-						<p>No active contract(s)</p>
+						<p>No active contract(s) available</p>
 					</div>
 				</div>
-				<br> <br> <br> <br> <br> <br> <br>
-				<br> <br> <br> <br>
+
 				<div id="leftcolumnbottomrow" class="row">
-					<button class="accordion">Closed Contract(s)(drop down to
-						view)</button>
+					<button class="accordion">Closed Contract(s)</button>
 					<div class="panel">
-						<p>No closed contract(s)</p>
+						<p>No closed contract(s) available</p>
 					</div>
 
 				</div>
-				<br> <br> <br> <br> <br> <br> <br>
-				<br> <br> <br> <br> <br>
+				<c:if test="${1>0 }">
+					<!--Testing to see if they are a photographer to give a list of client account they worked with.  -->
+
+					<div id="leftcolumntoprowphoto" class="row">
+						<button class="accordion">Current client</button>
+						<div class="panel">
+							<p>No Current client(s) available</p>
+						</div>
+
+					</div>
+					<div id="leftcolumnbottomrowphoto" class="row">
+						<button class="accordion">Previous Client(s)</button>
+						<div class="panel">
+							<p>No previous client(s) available</p>
+						</div>
+
+					</div>
+				</c:if>
+			</div>
+
+			<div id="middlecolumnpage" class="col-sm-6">
+				<p>column 2</p>
+
+				<c:if test="${1>0 }">
+					<!--Testing to see if they are a photographer to give album editing of contract they have done.  -->
+					<div id="middlecolumntoprow" class="row">
+						<div class="col-sm-12 ">
+							<img src="images/logo.png" alt="Photography For Me"
+								class="img-responsive" /> <a class="navbar-brand" href="#">Brand
+								Name</a>
+							<p>Photographer Description/bio, pricing, and enjoyment of
+								photography.</p>
+						</div>
+					</div>
+					<div id="middlecolumnmiddlerow" class="row">
+						<div class="col-sm-12 ">
+							<p>photographer album(s)</p>
+						</div>
+					</div>
+				</c:if>
+
+				<div id="middlecolumnbottomrow" class="row">
+					<div class="col-sm-12">
+						<p>User album(s)</p>
+					</div>
+				</div>
+
 
 			</div>
-			<div id="middlecolumnpage" class="col-sm-4 my-3 border">
-				column 2
-				<div class="row">
-					<div class="col-sm-12 border">row 2 col 2.1</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-12  border">row 2 col 2.1</div>
-				</div>
-			</div>
-			<div id="rightcolumnpage" class="col-sm-4 my-3 border">
+
+			<div id="rightcolumnpage" class="col-sm-3">
 				column 3 Welcome User(signed in)
-				<div id="leftcolumnbottomrow" class="row">
+				<c:if test="${1>0 }">
+				<div id="contact">
+					<button id=contactPhotographer type="button"> Contact Photographer</button>
+				</div>
+				</c:if>
+				<div id="rightcolumntoprow" class="row">
 					<button class="accordion">Account Information</button>
 					<div class="panel">
-						<p>Username</p>
+						<p>User name:</p>
 						<input type="text" name="username" placeholder="Username">
-						<p>Password</p>
+						<p>Password:</p>
 						<input type="text" name="password" placeholder="password">
-						<p>Email address</p>
+						<p>Email address:</p>
 						<input type="text" name="email" placeholder="email">
-						<p>Address</p>
+						<p>Address:</p>
 						<input type="text" name="address" placeholder="address">
-						<p>Payment information</p>
+						<p>Payment information:</p>
 						<input type="text" name="payment" placeholder="payment">
-						<p>Profile Picture</p>
+						<p>Profile Picture:</p>
 						<input type="text" name="profilepic" placeholder="profilepic">
 						<br>
 						<button class="button">Update Account</button>
+
 						<button class="button">Deactivate Account</button>
 					</div>
-					<div class="panel">
-					</div>
-					<div class="panel">
-					</div>
-					<div class="panel">
-					</div>
-					<div class="panel">
-					</div>
-					<div class="panel">
-					</div>
-					<div class="panel">
-					</div>
-					<div class="panel">
-					</div>
 				</div>
-
+				<c:if test="${ 1>0 }">
+					<!--Testing to see if they are a photographer to give additional editing.  -->
+					<div id="rightcolumnbottomrow" class="row">
+						<button class="accordion">Update Profile Page</button>
+						<div class="panel">
+							<p>Navigation bar background color</p>
+							<input type="text" name="navbackgroundcolor"
+								placeholder="backgroundcolor">
+							<p>Page background</p>
+							<input type="text" name="pagebackgroundcolor"
+								placeholder="backgroundcolor">
+							<p>font color</p>
+							<input type="text" name="fontcolor" placeholder="fontcolor">
+							<p>nav font color</p>
+							<input type="text" name="navfontcolor" placeholder="fontcolor">
+							<p>border color</p>
+							<input type="text" name="bordercolor" placeholder="bordercolor">
+							<p>accordion default color</p>
+							<input type="text" name="accordianbasecolor"
+								placeholder="accordianbasecolor"> <br>
+							<p>accordion hover/active color</p>
+							<input type="text" name="hoveractivecolor"
+								placeholder="hoveractivecolor"> <br>
+							<button class="button">Update Profile Page</button>
+						</div>
+					</div>
+				</c:if>
 			</div>
-
-
 		</div>
 	</div>
 
