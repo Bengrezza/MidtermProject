@@ -59,7 +59,7 @@ DROP TABLE IF EXISTS `user` ;
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(45) NULL,
+  `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `enabled` TINYINT NULL,
   `role` VARCHAR(45) NULL,
@@ -69,7 +69,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `last_name` VARCHAR(45) NULL,
   `address_id` INT NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC),
   INDEX `fk_user_address1_idx` (`address_id` ASC),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC),
   CONSTRAINT `fk_user_address1`
     FOREIGN KEY (`address_id`)
     REFERENCES `address` (`id`)
@@ -358,8 +360,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `photographerforme`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`, `join_date`, `first_name`, `last_name`, `address_id`) VALUES (1, 'billyjoe', 'goat', 1, 'basic', 'billydagoat@gmail.com', '2021-12-11 16:01:00', 'billy', 'joe', 1);
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`, `join_date`, `first_name`, `last_name`, `address_id`) VALUES (2, 'pete', 'Ram', 1, 'photographer', 'pete.ram@gmail.com', '2021-12-11 16:01:00', 'pete', 'ram', 2);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`, `join_date`, `first_name`, `last_name`, `address_id`) VALUES (1, 'billyjoe', 'goat', 1, 'basic', 'billydagoat@gmail.com', '2021-12-11 16:01:00', 'Billy', 'Joe', 1);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`, `join_date`, `first_name`, `last_name`, `address_id`) VALUES (2, 'pete', 'Ram', 1, 'photographer', 'pete.ram@gmail.com', '2021-12-11 16:01:00', 'Pete', 'Ram', 2);
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`, `join_date`, `first_name`, `last_name`, `address_id`) VALUES (3, 'Jack', 'Black', 1, 'basic', 'jack.black@gmail.com', '2021-12-11 16:01:00', 'Jack', 'Black', 3);
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`, `join_date`, `first_name`, `last_name`, `address_id`) VALUES (4, 'smog', 'dragon', 1, 'photographer', 'smogDaDragon@gmail.com', '2021-12-11 16:01:00', 'Harry', 'Potter', 4);
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`, `join_date`, `first_name`, `last_name`, `address_id`) VALUES (5, 'river', 'stream', 1, 'basic', 'gandalfthegrey@gmail.com', '2021-12-11 16:01:00', 'Ian', 'McKellen', 5);

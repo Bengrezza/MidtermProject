@@ -1,5 +1,6 @@
 package com.skilldistillery.photonerds.data;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +9,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.skilldistillery.photonerds.entities.Address;
+import com.skilldistillery.photonerds.entities.Country;
 import com.skilldistillery.photonerds.entities.Gallery;
 import com.skilldistillery.photonerds.entities.Photographer;
 import com.skilldistillery.photonerds.entities.User;
@@ -70,7 +73,7 @@ public class UserDAOImpl implements UserDAO {
 			return null;
 		}
 	}
-	
+
 	@Override
 	public Gallery findGalleryFromPhotographer(int id) {
 		String jpql = "SELECT g FROM Gallery g where g.photographer.id = :id";
@@ -82,6 +85,21 @@ public class UserDAOImpl implements UserDAO {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	@Override
+	public User registerUser(User newUser, Address newAddr) {
+
+		Country country = em.find(Country.class, "US");
+		newAddr.setCountry(country);
+		em.persist(newAddr);
+		newUser.setAddress(newAddr);
+		newUser.setEnabled(1);
+		newUser.setJoinDate(LocalDateTime.now());
+		em.persist(newUser);
+		System.err.println(newUser.getId());
+		
+		return newUser;
 	}
 
 }

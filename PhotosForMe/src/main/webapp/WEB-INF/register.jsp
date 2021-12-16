@@ -19,9 +19,10 @@
 				<input type="text" placeholder="Enter First Name"  name="firstname" required="required"  >
 				<input type="text" placeholder="Enter Last Name"  name="lastname" required="required"  ><br>
 				<input type="text" placeholder="Enter Email"  name="email" required="required"  >
+				<input type="text" placeholder="Role" name="role" required="required">
 				<br><br><br><label>Address:</label><br>
 				<input type="text" placeholder="Enter Street "  name="street" required="required"  >
-				<input type="text" placeholder="Enter Street2 "  name="street2" required="required"  > <br>
+				<input type="text" placeholder="Enter Street2 "  name="street2"   > <br>
 				<input type="text" placeholder="Enter City "  name="city" required="required"  >
 				<input type="text" placeholder="Enter State "  name="state" required="required"  > <br>
 				<input type="number" placeholder="Enter Postal code "  name="postalcode" required="required" >

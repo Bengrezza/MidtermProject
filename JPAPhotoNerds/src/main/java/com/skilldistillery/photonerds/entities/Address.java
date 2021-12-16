@@ -1,5 +1,6 @@
 package com.skilldistillery.photonerds.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -9,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Address {
@@ -28,8 +29,8 @@ public class Address {
 	private int postalCode;
 	private String phone;
 
-	@OneToOne(mappedBy = "address")
-	private User user;
+	@OneToMany(mappedBy = "address")
+	private List<User> users;
 
 	@ManyToOne
 	@JoinColumn(name = "country_id")
@@ -94,12 +95,12 @@ public class Address {
 		this.phone = phone;
 	}
 
-	public User getUser() {
-		return user;
+	public List<User> getUsers() {
+		return users;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 
 	public Country getCountry() {
