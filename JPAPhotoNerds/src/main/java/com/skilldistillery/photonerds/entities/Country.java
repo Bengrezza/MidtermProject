@@ -38,7 +38,7 @@ public class Country {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, name);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -53,9 +53,9 @@ public class Country {
 		return Objects.equals(id, other.id) && Objects.equals(name, other.name);
 	}
 
-	@Override
-	public String toString() {
-		return "Country [id=" + id + ", name=" + name + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Country [id=" + id + ", name=" + name + "]";
+//	}
 
 }

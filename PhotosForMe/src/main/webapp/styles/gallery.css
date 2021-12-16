@@ -9,7 +9,7 @@
 
 .photographers .container {
 	transform: translate(0%, 90%);
-	max-height: 200px;
+	max-height: 250px;
     display: flex;
     align-items: center;
     border-top: 2px solid #9DAAF2;
@@ -31,8 +31,13 @@
 }
 
 .photographer-gallery img {
-    height: 12rem;
+    height: 8rem;
     width: auto;
+}
+
+.photographer-gallery img:hover {
+  width: 100%;
+  height: auto;
 }
 
 .caption {

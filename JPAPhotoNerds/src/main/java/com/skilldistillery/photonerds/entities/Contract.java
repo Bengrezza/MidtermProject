@@ -142,8 +142,7 @@ public class Contract {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(closed, contractMessages, description, eventEnd, eventStart, id, location, photoDeliveryBy,
-				photographers, title, user);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -163,12 +162,12 @@ public class Contract {
 				&& Objects.equals(user, other.user);
 	}
 
-	@Override
-	public String toString() {
-		return "Contract [id=" + id + ", title=" + title + ", description=" + description + ", location=" + location
-				+ ", eventStart=" + eventStart + ", eventEnd=" + eventEnd + ", photoDeliveryBy=" + photoDeliveryBy
-				+ ", closed=" + closed + ", photographers=" + photographers + ", user=" + user + ", contractMessages="
-				+ contractMessages + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Contract [id=" + id + ", title=" + title + ", description=" + description + ", location=" + location
+//				+ ", eventStart=" + eventStart + ", eventEnd=" + eventEnd + ", photoDeliveryBy=" + photoDeliveryBy
+//				+ ", closed=" + closed + ", photographers=" + photographers + ", user=" + user + ", contractMessages="
+//				+ contractMessages + "]";
+//	}
 
 }

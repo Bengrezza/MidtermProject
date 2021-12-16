@@ -90,7 +90,7 @@ public class ContractHasPhotographer {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(comment, id, payments, price, rating);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -107,10 +107,10 @@ public class ContractHasPhotographer {
 				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price) && rating == other.rating;
 	}
 
-	@Override
-	public String toString() {
-		return "ContractHasPhotographer [id=" + id + ", rating=" + rating + ", comment=" + comment + ", price=" + price
-				+ ", payments=" + payments + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "ContractHasPhotographer [id=" + id + ", rating=" + rating + ", comment=" + comment + ", price=" + price
+//				+ ", payments=" + payments + "]";
+//	}
 
 }

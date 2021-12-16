@@ -176,8 +176,7 @@ public class User {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(address, contractMessages, contracts, email, enabled, firstName, id, joinDate, lastName,
-				password, photographer, role, username);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -197,12 +196,12 @@ public class User {
 				&& Objects.equals(role, other.role) && Objects.equals(username, other.username);
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
-				+ ", role=" + role + ", email=" + email + ", joinDate=" + joinDate + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", address=" + address + ", photographer=" + photographer + ", contracts="
-				+ contracts + ", contractMessages=" + contractMessages + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
+//				+ ", role=" + role + ", email=" + email + ", joinDate=" + joinDate + ", firstName=" + firstName
+//				+ ", lastName=" + lastName + ", address=" + address + ", contracts="
+//				+ contracts + ", contractMessages=" + contractMessages + "]";
+//	}
 
 }

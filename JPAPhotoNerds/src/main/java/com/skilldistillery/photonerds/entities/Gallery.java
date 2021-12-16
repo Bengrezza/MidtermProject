@@ -92,11 +92,11 @@ public class Gallery {
 		}
 	}
 
-	@Override
-	public String toString() {
-		return "Gallery [id=" + id + ", title=" + title + ", description=" + description + ", photographer="
-				+ photographer + ", images=" + images + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Gallery [id=" + id + ", title=" + title + ", description=" + description + ", photographer="
+//				+ photographer + ", images=" + images + "]";
+//	}
 
 	@Override
 	public int hashCode() {

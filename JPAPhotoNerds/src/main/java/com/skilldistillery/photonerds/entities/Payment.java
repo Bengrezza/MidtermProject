@@ -66,7 +66,7 @@ public class Payment {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(amount, contracthasphotographer, id, paymentDate);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -83,10 +83,10 @@ public class Payment {
 				&& Objects.equals(paymentDate, other.paymentDate);
 	}
 
-	@Override
-	public String toString() {
-		return "Payment [id=" + id + ", paymentDate=" + paymentDate + ", amount=" + amount
-				+ ", contracthasphotographer=" + contracthasphotographer + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Payment [id=" + id + ", paymentDate=" + paymentDate + ", amount=" + amount
+//				+ ", contracthasphotographer=" + contracthasphotographer + "]";
+//	}
 
 }

@@ -154,8 +154,7 @@ public class Photographer {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(active, business, businessLogo, contracts, description, galleries, id, photoShootTypes,
-				user);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -174,11 +173,11 @@ public class Photographer {
 				&& Objects.equals(user, other.user);
 	}
 
-	@Override
-	public String toString() {
-		return "Photographer [id=" + id + ", active=" + active + ", business=" + business + ", description="
-				+ description + ", businessLogo=" + businessLogo + ", user=" + user + ", gallery=" + galleries
-				+ ", photoShootTypes=" + photoShootTypes + ", contracts=" + contracts + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Photographer [id=" + id + ", active=" + active + ", business=" + business + ", description="
+//				+ description + ", businessLogo=" + businessLogo + ", gallery=" + galleries
+//				+ ", photoShootTypes=" + photoShootTypes + ", contracts=" + contracts + "]";
+//	}
 
 }

@@ -56,13 +56,9 @@ public class ContractHasPhotographerId implements Serializable {
 		return contractId == other.contractId && photographerId == other.photographerId;
 	}
 
-	@Override
-	public String toString() {
-		return "ContractHasPhotographerId [contractId=" + contractId + ", photographerId=" + photographerId + "]";
-	}
-	
-	
-	
-	
+//	@Override
+//	public String toString() {
+//		return "ContractHasPhotographerId [contractId=" + contractId + ", photographerId=" + photographerId + "]";
+//	}
 
 }

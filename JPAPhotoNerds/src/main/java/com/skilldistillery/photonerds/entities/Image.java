@@ -92,11 +92,11 @@ public class Image {
 		}
 	}
 
-	@Override
-	public String toString() {
-		return "Image [id=" + id + ", urlLink=" + urlLink + ", uploadDate=" + uploadDate + ", title=" + title
-				+ ", gallery=" + galleries + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Image [id=" + id + ", urlLink=" + urlLink + ", uploadDate=" + uploadDate + ", title=" + title
+//				+ ", gallery=" + galleries + "]";
+//	}
 
 	@Override
 	public int hashCode() {

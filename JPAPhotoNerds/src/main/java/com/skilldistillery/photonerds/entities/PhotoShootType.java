@@ -58,7 +58,7 @@ public class PhotoShootType {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, name, photographers);
+		return Objects.hash(id);
 	}
 	public void addPhotographer(Photographer photographer) {
 		if (photographers == null) {
@@ -89,9 +89,9 @@ public class PhotoShootType {
 		return id == other.id && Objects.equals(name, other.name) && Objects.equals(photographers, other.photographers);
 	}
 
-	@Override
-	public String toString() {
-		return "PhotoShootType [id=" + id + ", name=" + name + ", photographers=" + photographers + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "PhotoShootType [id=" + id + ", name=" + name + ", photographers=" + photographers + "]";
+//	}
 
 }

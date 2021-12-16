@@ -112,7 +112,7 @@ public class Address {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(city, id, phone, postalCode, state, street, street2);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -129,10 +129,10 @@ public class Address {
 				&& Objects.equals(street, other.street) && Objects.equals(street2, other.street2);
 	}
 
-	@Override
-	public String toString() {
-		return "Address [street=" + street + ", street2=" + street2 + ", state=" + state + ", city=" + city
-				+ ", postalCode=" + postalCode + ", phone=" + phone + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Address [street=" + street + ", street2=" + street2 + ", state=" + state + ", city=" + city
+//				+ ", postalCode=" + postalCode + ", phone=" + phone + "]";
+//	}
 
 }

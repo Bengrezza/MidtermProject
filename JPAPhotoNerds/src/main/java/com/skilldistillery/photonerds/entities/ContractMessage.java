@@ -89,7 +89,7 @@ public class ContractMessage {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(contract, id, message, messageDate, reply, user);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -106,10 +106,10 @@ public class ContractMessage {
 				&& Objects.equals(user, other.user);
 	}
 
-	@Override
-	public String toString() {
-		return "ContractMessage [id=" + id + ", message=" + message + ", messageDate=" + messageDate + ", reply="
-				+ reply + ", contract=" + contract + ", user=" + user + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "ContractMessage [id=" + id + ", message=" + message + ", messageDate=" + messageDate + ", reply="
+//				+ reply + ", contract=" + contract + ", user=" + user + "]";
+//	}
 
 }

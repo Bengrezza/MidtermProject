@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.skilldistillery.photonerds.entities.Gallery;
 import com.skilldistillery.photonerds.entities.Photographer;
 import com.skilldistillery.photonerds.entities.User;
 
@@ -38,18 +39,44 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			return em.createQuery(jpql, User.class).setParameter("id", id).getSingleResult();
 		} catch (Exception e) {
-			System.err.println("invalid photographer");
+			System.err.println("invalid user");
 			e.printStackTrace();
 			return null;
 		}
 	}
 
 	@Override
-	public List<Photographer> findPhotographers(int id) {
+	public List<Photographer> findAllPhotographers() {
+		String jpql = "SELECT p FROM Photographer p";
+
+		try {
+			return em.createQuery(jpql, Photographer.class).getResultList();
+		} catch (Exception e) {
+			System.err.println("invalid photographers");
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public Photographer findPhotographerByID(int id) {
 		String jpql = "SELECT p FROM Photographer p WHERE p.id = :id";
 
 		try {
-			return em.createQuery(jpql, Photographer.class).setParameter("id", id).getResultList();
+			return em.createQuery(jpql, Photographer.class).setParameter("id", id).getSingleResult();
+		} catch (Exception e) {
+			System.err.println("invalid photographer");
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	@Override
+	public Gallery findGalleryFromPhotographer(int id) {
+		String jpql = "SELECT g FROM Gallery g where g.photographer.id = :id";
+
+		try {
+			return em.createQuery(jpql, Gallery.class).setParameter("id", id).getSingleResult();
 		} catch (Exception e) {
 			System.err.println("invalid photographer");
 			e.printStackTrace();
