@@ -92,11 +92,15 @@ public class UserDAOImpl implements UserDAO {
 
 		Country country = em.find(Country.class, "US");
 		newAddr.setCountry(country);
+		try {
 		em.persist(newAddr);
 		newUser.setAddress(newAddr);
 		newUser.setEnabled(1);
 		newUser.setJoinDate(LocalDateTime.now());
 		em.persist(newUser);
+		} catch (Exception e) {
+			return null;
+		}
 		System.err.println(newUser.getId());
 		
 		return newUser;
