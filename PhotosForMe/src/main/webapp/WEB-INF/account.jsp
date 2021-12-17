@@ -35,9 +35,9 @@
 			<div class="collapse navbar-collapse" id="collapsibleNavbar">
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link" href="home">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="#"> View
+					<li class="nav-item"><a class="nav-link" href="gallery"> View
 							Photographers</a></li>
-					<li class="nav-item"><a class="nav-link" href="home">Logout</a></li>
+					<li class="nav-item"><a class="nav-link" href="logout.do">Logout</a></li>
 				</ul>
 				<input type="text" placeholder="search...">
 			</div>

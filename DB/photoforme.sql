@@ -408,7 +408,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `photographerforme`;
-INSERT INTO `contract` (`id`, `title`, `description`, `location`, `event_start`, `event_end`, `photos_deliver_by`, `user_id`, `closed`) VALUES (1, 'Family Photo s', '30 min session', 'Woodland Park city center out front', '2021-12-13 16:00:00', '2021-12-13 16:30:00', '2021-12-17 16:01:00', 1, 0);
+INSERT INTO `contract` (`id`, `title`, `description`, `location`, `event_start`, `event_end`, `photos_deliver_by`, `user_id`, `closed`) VALUES (1, 'Basic Display', '30 min session', 'Woodland Park city center out front', '2021-12-13 16:00:00', '2021-12-13 16:30:00', '2021-12-17 16:01:00', 1, 0);
 INSERT INTO `contract` (`id`, `title`, `description`, `location`, `event_start`, `event_end`, `photos_deliver_by`, `user_id`, `closed`) VALUES (2, 'Mckellen Family', 'Hour session  ', 'Garden of the gods', '2022-04-05 14:00:00', '2022-04-05 18:00:00', '2022-04-12 19:00:00', 5, 1);
 INSERT INTO `contract` (`id`, `title`, `description`, `location`, `event_start`, `event_end`, `photos_deliver_by`, `user_id`, `closed`) VALUES (3, 'Home Coming', 'Early morning return from deployment', 'AFB Buckley', '2022-02-11  03:30:00', '2022-02-11 05:00:00', '2022-02-15 16:00:00', 9, 1);
 INSERT INTO `contract` (`id`, `title`, `description`, `location`, `event_start`, `event_end`, `photos_deliver_by`, `user_id`, `closed`) VALUES (4, 'Wedding', '8 hours of photo coverage', 'Spires Ranch', '2022-05-27 12:00:00', '2022-05-27 20:00:00', '2022-06-20 23:59:00', 13, 0);
@@ -456,8 +456,8 @@ START TRANSACTION;
 USE `photographerforme`;
 INSERT INTO `gallery` (`id`, `title`, `photographer_id`, `description`) VALUES (1, 'Basic Display', 1, 'A collections of photos taken');
 INSERT INTO `gallery` (`id`, `title`, `photographer_id`, `description`) VALUES (2, 'Wedding', 2, 'Life\'s embrace');
-INSERT INTO `gallery` (`id`, `title`, `photographer_id`, `description`) VALUES (3, 'Family', 3, 'Mckellen family');
-INSERT INTO `gallery` (`id`, `title`, `photographer_id`, `description`) VALUES (4, 'Professional', 4, 'Model Shots');
+INSERT INTO `gallery` (`id`, `title`, `photographer_id`, `description`) VALUES (3, 'Mckellen Family', 3, 'Mckellen family');
+INSERT INTO `gallery` (`id`, `title`, `photographer_id`, `description`) VALUES (4, 'Model Call Photoshoot', 4, 'Model Shots');
 INSERT INTO `gallery` (`id`, `title`, `photographer_id`, `description`) VALUES (5, 'Home Coming', 5, 'Welcome Back');
 
 COMMIT;
