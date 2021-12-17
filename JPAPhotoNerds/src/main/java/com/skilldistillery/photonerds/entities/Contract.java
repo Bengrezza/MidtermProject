@@ -36,7 +36,9 @@ public class Contract {
 	private LocalDate photoDeliveryBy;
 	@Column(name = "closed")
 	private int closed;
-
+	@OneToMany(mappedBy="contract")
+	private List<ContractHasPhotographer> chps;
+	
 	@ManyToMany
 	@JoinTable(name = "contract_has_photographer", joinColumns = @JoinColumn(name = "contract_id"), inverseJoinColumns = @JoinColumn(name = "photographer_id"))
 	private List<Photographer> photographers;
@@ -47,6 +49,14 @@ public class Contract {
 
 	@OneToMany(mappedBy = "contract")
 	private List<ContractMessage> contractMessages;
+
+	public List<ContractHasPhotographer> getChps() {
+		return chps;
+	}
+
+	public void setChps(List<ContractHasPhotographer> chps) {
+		this.chps = chps;
+	}
 
 	public Contract() {
 

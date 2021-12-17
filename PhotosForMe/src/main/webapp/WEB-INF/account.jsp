@@ -75,7 +75,7 @@
 						<c:forEach var="contract" items="${user.contracts}">
 							<c:if test="${contract.closed < 1 }">
 								<p>${contract.title },${contract.description },
-									${contract.location }, ${contract.eventStart) },
+									${contract.location }, ${contract.eventStart },
 									${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
 							</c:if>
 						</c:forEach>
@@ -88,7 +88,7 @@
 						<c:forEach var="contract" items="${user.contracts}">
 							<c:if test="${contract.closed > 0 }">
 								<p>${contract.title },${contract.description },
-									${contract.location }, ${contract.eventStart) },
+									${contract.location }, ${contract.eventStart },
 									${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
 							</c:if>
 						</c:forEach>
@@ -103,7 +103,7 @@
 						<div class="panel">
 							<c:forEach var="contract" items="${photographer.contracts}">
 								<c:if test="${contract.closed < 1 }">
-						<p>${contract.user.firstName}, ${contract.user.lastName }, ${contract.user.email }, ${contract.user.phone }</p>
+						<p>${contract.user.firstName}, ${contract.user.lastName }, ${contract.user.email }, ${contract.user.address.phone }</p>
 						</c:if></c:forEach>
 						</div>
 
@@ -113,7 +113,7 @@
 						<div class="panel">
 							<c:forEach var="contract" items="${photographer.contracts}">
 								<c:if test="${contract.closed > 0 }">
-						<p>${contract.user.firstName}, ${contract.user.lastName }, ${contract.user.email }, ${contract.user.phone }</p>
+						<p>${contract.user.firstName}, ${contract.user.lastName }, ${contract.user.email }, ${contract.user.address.phone }</p>
 						</c:if></c:forEach>
 						</div>
 
@@ -128,16 +128,22 @@
 					<!--Testing to see if they are a photographer to give album editing of contract they have done.  -->
 					<div id="middlecolumntoprow" class="row">
 						<div class="col-sm-12 ">
-							<img src="images/logo.png" alt="Photography For Me"
-								class="img-responsive" /> <a class="navbar-brand" href="#">Brand
-								Name</a>
-							<p>Photographer Description/bio, pricing, and enjoyment of
-								photography.</p>
+							<img src="${photographer.businessLogo }" alt="Photography For Me"
+								class="img-responsive" /> <a class="navbar-brand" href="#">photographer.businessLogo</a>
+							<p>${photographer.description}</p>
 						</div>
 					</div>
 					<div id="middlecolumnmiddlerow" class="row">
 						<div class="col-sm-12 ">
-							<p>photographer album(s)</p>
+							<c:forEach var="galler" items="${photographer.gallery }">
+							<button class="accordion">${galler.title}</button>
+						${galler.description}
+						<div class="panel">
+						<c:forEach var="image" items="${galler.images }">
+						<img alt="${image.title}" src="${ image.urlLink}">
+						</c:forEach>
+						</div>
+							</c:forEach>
 						</div>
 					</div>
 				</c:if>

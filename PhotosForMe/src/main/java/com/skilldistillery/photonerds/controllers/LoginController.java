@@ -40,7 +40,7 @@ public class LoginController {
 					photoG = user.getPhotographer();
 					session.setAttribute("photographer", photoG);
 					List <ContractHasPhotographer> chs;
-					chs = userDAO.findContractsByPhotographerId(photoG.getId());
+					chs = userDAO.findContractsByPhotographer(photoG.getId());
 					if(chs != null) {
 						session.setAttribute("chs", chs);
 					}

@@ -7,6 +7,9 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,7 +26,17 @@ public class ContractHasPhotographer {
 	private String comment;
 	@Column(name = "price")
 	private double price;
-
+	
+	@ManyToOne
+	@JoinColumn(name = "contract_id") // DB column name
+	@MapsId(value = "contractId")     // Field in ID class
+	private Contract contract;
+	
+	@ManyToOne
+	@JoinColumn(name = "photographer_id") // DB column
+	@MapsId(value = "photographerId")     // Field in ID class
+	private Photographer photographer;
+	
 	@OneToMany(mappedBy = "contracthasphotographer")
 	private List<Payment> payments;
 
@@ -69,6 +82,22 @@ public class ContractHasPhotographer {
 
 	public void setPayments(List<Payment> payments) {
 		this.payments = payments;
+	}
+
+	public Contract getContract() {
+		return contract;
+	}
+
+	public void setContract(Contract contract) {
+		this.contract = contract;
+	}
+
+	public Photographer getPhotographer() {
+		return photographer;
+	}
+
+	public void setPhotographer(Photographer photographer) {
+		this.photographer = photographer;
 	}
 
 	public void addPayment(Payment payment) {

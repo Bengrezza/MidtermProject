@@ -17,5 +17,5 @@ public interface UserDAO {
 	Gallery findGalleryFromPhotographer(int id);
 	User registerUser(User newUser, Address newAddr);
 	Photographer findByUserId(int userId);
-	List<ContractHasPhotographer> findContractsByPhotographerId(int photoGId);
+	List<ContractHasPhotographer> findContractsByPhotographer(int photoGId);
 }

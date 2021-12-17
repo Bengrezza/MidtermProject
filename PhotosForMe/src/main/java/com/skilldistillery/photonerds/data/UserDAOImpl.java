@@ -122,8 +122,8 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public List<ContractHasPhotographer> findContractsByPhotographerId(int photoGId) {
-		String jpql = "SELECT chsi FROM ContractHasPhotographerId chsi WHERE chsi.photographerId = :id ";
+	public List<ContractHasPhotographer> findContractsByPhotographer(int photoGId) {
+		String jpql = "SELECT chp FROM ContractHasPhotographer chp WHERE chp.photographer.id = :id ";
 		List<ContractHasPhotographer> chs = em.createQuery(jpql, ContractHasPhotographer.class).setParameter("id", photoGId).getResultList();
 		
 		return chs;

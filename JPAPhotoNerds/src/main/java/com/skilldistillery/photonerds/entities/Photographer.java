@@ -41,7 +41,8 @@ public class Photographer {
 
 	@ManyToMany(mappedBy = "photographers")
 	private List<Contract> contracts;
-
+	@OneToMany(mappedBy="photographer")
+	private List<ContractHasPhotographer> chps;
 	public Photographer() {
 
 	}
@@ -116,6 +117,14 @@ public class Photographer {
 
 	public void setContracts(List<Contract> contracts) {
 		this.contracts = contracts;
+	}
+
+	public List<ContractHasPhotographer> getChps() {
+		return chps;
+	}
+
+	public void setChps(List<ContractHasPhotographer> chps) {
+		this.chps = chps;
 	}
 
 	public void addGallery(Gallery gallery) {
