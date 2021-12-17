@@ -53,12 +53,14 @@
 			<div id="leftcolumnpage" class="col-sm-3">
 				<img src="images/logo.png" alt="Photography For Me"
 					class="img-responsive-profile-pic" />
-					<c:if test="${1>0 }">
-				<div class="row">
-					<div class="col-sm-12">
-						<p  id="rating">Rating(), Name, Location(city, state only) </p>
+				<c:if test="${not empty photographer }">
+					<div class="row">
+						<div class="col-sm-12">
+							<p id="rating">Rating ${chs[0].rating }, ${user.firstName },
+								${user.lastName } Location: ${user.address.city},
+								${user.address.state})</p>
+						</div>
 					</div>
-				</div>
 				</c:if>
 				<div id="leftcolumntoprow" class="row">
 					<div class=" d-flex justify-content-center">
@@ -70,31 +72,49 @@
 				<div id="leftcolumnmiddlerow" class="row">
 					<button class="accordion">Open contract(s)</button>
 					<div class="panel">
-						<p>No active contract(s) available</p>
+						<c:forEach var="contract" items="${user.contracts}">
+							<c:if test="${contract.closed < 1 }">
+								<p>${contract.title },${contract.description },
+									${contract.location }, ${contract.eventStart) },
+									${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
+							</c:if>
+						</c:forEach>
 					</div>
 				</div>
 
 				<div id="leftcolumnbottomrow" class="row">
 					<button class="accordion">Closed Contract(s)</button>
 					<div class="panel">
-						<p>No closed contract(s) available</p>
+						<c:forEach var="contract" items="${user.contracts}">
+							<c:if test="${contract.closed > 0 }">
+								<p>${contract.title },${contract.description },
+									${contract.location }, ${contract.eventStart) },
+									${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
+							</c:if>
+						</c:forEach>
 					</div>
 
 				</div>
-				<c:if test="${1>0 }">
+				<c:if test="${not empty photographer  }">
 					<!--Testing to see if they are a photographer to give a list of client account they worked with.  -->
 
 					<div id="leftcolumntoprowphoto" class="row">
 						<button class="accordion">Current client</button>
 						<div class="panel">
-							<p>No Current client(s) available</p>
+							<c:forEach var="contract" items="${photographer.contracts}">
+								<c:if test="${contract.closed < 1 }">
+						<p>${contract.user.firstName}, ${contract.user.lastName }, ${contract.user.email }, ${contract.user.phone }</p>
+						</c:if></c:forEach>
 						</div>
 
 					</div>
 					<div id="leftcolumnbottomrowphoto" class="row">
 						<button class="accordion">Previous Client(s)</button>
 						<div class="panel">
-							<p>No previous client(s) available</p>
+							<c:forEach var="contract" items="${photographer.contracts}">
+								<c:if test="${contract.closed > 0 }">
+						<p>${contract.user.firstName}, ${contract.user.lastName }, ${contract.user.email }, ${contract.user.phone }</p>
+						</c:if></c:forEach>
 						</div>
 
 					</div>
@@ -104,7 +124,7 @@
 			<div id="middlecolumnpage" class="col-sm-6">
 				<p>column 2</p>
 
-				<c:if test="${1>0 }">
+				<c:if test="${not empty photographer}">
 					<!--Testing to see if they are a photographer to give album editing of contract they have done.  -->
 					<div id="middlecolumntoprow" class="row">
 						<div class="col-sm-12 ">
@@ -133,10 +153,11 @@
 
 			<div id="rightcolumnpage" class="col-sm-3">
 				column 3 Welcome User(signed in)
-				<c:if test="${1>0 }">
-				<div id="contact">
-					<button id=contactPhotographer type="button"> Contact Photographer</button>
-				</div>
+				<c:if test="${not empty photographer }">
+					<div id="contact">
+						<button id=contactPhotographer type="button">Contact
+							Photographer</button>
+					</div>
 				</c:if>
 				<div id="rightcolumntoprow" class="row">
 					<button class="accordion">Account Information</button>
@@ -159,7 +180,7 @@
 						<button class="button">Deactivate Account</button>
 					</div>
 				</div>
-				<c:if test="${ 1>0 }">
+				<c:if test="${ not empty photographer }">
 					<!--Testing to see if they are a photographer to give additional editing.  -->
 					<div id="rightcolumnbottomrow" class="row">
 						<button class="accordion">Update Profile Page</button>

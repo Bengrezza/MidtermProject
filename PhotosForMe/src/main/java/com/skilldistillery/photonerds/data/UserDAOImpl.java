@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import com.skilldistillery.photonerds.entities.Address;
+import com.skilldistillery.photonerds.entities.ContractHasPhotographer;
 import com.skilldistillery.photonerds.entities.Country;
 import com.skilldistillery.photonerds.entities.Gallery;
 import com.skilldistillery.photonerds.entities.Photographer;
@@ -104,6 +105,28 @@ public class UserDAOImpl implements UserDAO {
 		System.err.println(newUser.getId());
 		
 		return newUser;
+	}
+
+	@Override
+	public Photographer findByUserId(int userId) {
+		String jpql = "SELECT u FROM User u WHERE u.id = :id";
+
+		try {
+			return em.createQuery(jpql, Photographer.class).setParameter("id", userId).getSingleResult();
+		} catch (Exception e) {
+			System.err.println("invalid photographer");
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+
+	@Override
+	public List<ContractHasPhotographer> findContractsByPhotographerId(int photoGId) {
+		String jpql = "SELECT chsi FROM ContractHasPhotographerId chsi WHERE chsi.photographerId = :id ";
+		List<ContractHasPhotographer> chs = em.createQuery(jpql, ContractHasPhotographer.class).setParameter("id", photoGId).getResultList();
+		
+		return chs;
 	}
 
 }
