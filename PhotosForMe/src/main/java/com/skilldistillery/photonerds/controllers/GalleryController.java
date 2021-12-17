@@ -3,6 +3,8 @@ package com.skilldistillery.photonerds.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +20,7 @@ public class GalleryController {
 	@Autowired
 	private UserDAO userDAO;
 	
-	@RequestMapping(path={"gallery", "gallery.do"})
+	@RequestMapping(path={"gallery"})
 	public String gallery(Model model) {
 		
 		List<Photographer> photographers = userDAO.findAllPhotographers();
@@ -33,4 +35,15 @@ public class GalleryController {
 		return "gallery";
 	}
 	
+	@RequestMapping(path={"gallery.do"})
+	public String galleryDo(Model model, int photographerid, HttpSession session) {
+	
+		Photographer photographer = userDAO.findPhotographerByID(photographerid);
+		
+		session.setAttribute("photographer", photographer);
+		
+		System.out.println(photographer.getId());
+		
+		return "account";
+	}
 }

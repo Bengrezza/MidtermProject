@@ -41,7 +41,7 @@ pageEncoding="UTF-8"%>
               <a href="login" class="nav-link">Login/Register</a>
             </li>
             <li class="nav-item">
-              <a href="gallery.do" class="nav-link">Photographers</a>
+              <a href="gallery" class="nav-link">Photographers</a>
             </li>
             <li class="nav-item">
               <a href="#services" class="nav-link">Services</a>
