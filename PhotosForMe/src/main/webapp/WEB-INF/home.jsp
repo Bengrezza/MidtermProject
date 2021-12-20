@@ -88,8 +88,8 @@ pageEncoding="UTF-8"%>
 			<ol>
 			<c:forEach items="${chphotographers}" var="chphotographer">
 				<li class="recent-comments-item">
-					<p>${chphotographer.comment },</p>
-					<p>By User - ${chphotographer.contract.user.firstName }, ${chphotographer.contract.user.lastName }</p><br>
+					<p><strong>${chphotographer.comment },</strong></p>
+					<p><em>By User - ${chphotographer.contract.user.firstName }, ${chphotographer.contract.user.lastName }</em></p><br>
 				</li>
 			</c:forEach>
 			</ol>
