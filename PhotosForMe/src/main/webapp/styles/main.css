@@ -19,6 +19,10 @@ ul {
     list-style: none;
 }
 
+ol {
+    list-style: none;
+}
+
 img {
     width: 100%;
     max-width: 100%;
@@ -195,7 +199,6 @@ nav {
     width: 20%;
     height: 50vh;
     transform: translateY(50%);
-    border: 2px solid #9DAAF2;
     background-size: contain;
     position: relative;
 }
@@ -249,7 +252,6 @@ nav {
     right: 0;
     top: 0;
     transform: translateY(50%);
-    border: 2px solid #9DAAF2;
     background-size: contain;
     position: absolute;
     align-items: center;
@@ -283,7 +285,6 @@ nav {
     position: relative;
     top: 4rem;
     margin: 2px 2px;
-    display: list-item;
 }
 
 .recent-comments-item {

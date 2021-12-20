@@ -63,6 +63,7 @@ pageEncoding="UTF-8"%>
 			</div>
 			<div class="top-photographers-list">
 				<div class="top-photographers-item">
+					<br>
 					<a href="gallery">Click To View Photographers in Gallery!</a>
 					<ol>
 					<c:forEach items="${photographers}" var="photographer" begin="0" end="4">
@@ -88,7 +89,7 @@ pageEncoding="UTF-8"%>
 			<ol>
 			<c:forEach items="${chphotographers}" var="chphotographer">
 				<li class="recent-comments-item">
-					<p>${chphotographer.comment },</p>
+					<p>${chphotographer.comment},</p>
 					<p>By User - ${chphotographer.contract.user.firstName }, ${chphotographer.contract.user.lastName }</p><br>
 				</li>
 			</c:forEach>
