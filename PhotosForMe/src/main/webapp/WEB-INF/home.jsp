@@ -61,53 +61,39 @@ pageEncoding="UTF-8"%>
 					<h2>Top Photographers</h2>
 				</div>
 			</div>
-			<ol class="top-photographers-list">
-				<li class="top-photographers-item">
-					<a href="">Photographer 1</a>
-					<p>Rating: 5 Location: Denver, CO</p>
-				</li>
-				<li class="top-photographers-item">
-					<a href="">Photographer 2</a>
-					<p>Rating: 5 Location: Denver, CO</p>
-				</li>
-				<li class="top-photographers-item">
-					<a href="">Photographer 3</a>
-					<p>Rating: 5 Location: Denver, CO</p>
-				</li>
-				<li class="top-photographers-item">
-					<a href="">Photographer 4</a>
-					<p>Rating: 5 Location: Denver, CO</p>
-				</li>
-				<li class="top-photographers-item">
-					<a href="">Photographer 5</a>
-					<p>Rating: 5 Location: Denver, CO</p>
-				</li>
-			</ol>
+			<div class="top-photographers-list">
+				<div class="top-photographers-item">
+					<a href="gallery">Click To View Photographers in Gallery!</a>
+					<ol>
+					<c:forEach items="${photographers}" var="photographer" begin="0" end="4">
+					<li>
+					<form action="gallery.do" method="POST">
+                	<p>${photographer.user.firstName}, ${photographer.user.lastName}</p>
+                	<p>${photographer.user.address.city}, ${photographer.user.address.state}</p>
+                	<input type="hidden" name="photographerid" value="${photographer.id}">  
+                <button type="submit" class="login-button btn" >View Photographer</button>
+                </form>
+					</li> </c:forEach></ol>
+				</div>
+			</div>
 		</section>
 
 		<section id="recent-comments" class="recent-comments">
 			<div class="container">
 				<div class="recent-comments-title">
-					<h2>Recent Comments</h2>
+					<h2>Recent User Reviews!</h2>
 				</div>
 			</div>
-			<ul class="recent-comments-list">
+			<div class="recent-comments-list">
+			<ol>
+			<c:forEach items="${chphotographers}" var="chphotographer">
 				<li class="recent-comments-item">
-					<p>Random comment here. More comment stuff this is a very very long comment! WOW it is so long i think it will break everything......</p>
+					<p>${chphotographer.comment },</p>
+					<p>By User - ${chphotographer.contract.user.firstName }, ${chphotographer.contract.user.lastName }</p><br>
 				</li>
-				<li class="recent-comments-item">
-					<p>Random comment here.</p>
-				</li>
-				<li class="recent-comments-item">
-					<p>Random comment here.</p>
-				</li>
-				<li class="recent-comments-item">
-					<p>Random comment here.</p>
-				</li>
-				<li class="recent-comments-item">
-					<p>Random comment here.</p>
-				</li>
-			</ul>
+			</c:forEach>
+			</ol>
+			</div>
 		</section>
 		
 		<section id="mission-statement" class="mission-statement">

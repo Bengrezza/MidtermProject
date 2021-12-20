@@ -18,6 +18,13 @@ public class ContractHasPhotographerId implements Serializable {
 	public ContractHasPhotographerId() {
 		
 	}
+	
+
+	public ContractHasPhotographerId(int contractId, int photographerId) {
+		this.contractId = contractId;
+		this.photographerId = photographerId;
+	}
+
 
 	public int getContractId() {
 		return contractId;
