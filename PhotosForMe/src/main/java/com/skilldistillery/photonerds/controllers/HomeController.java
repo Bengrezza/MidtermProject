@@ -2,6 +2,8 @@ package com.skilldistillery.photonerds.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,8 +25,8 @@ public class HomeController {
 //	}
 
 	@RequestMapping(path = { "/", "home", "home.do" })
-	public String home(Model model) {
-
+	public String home(Model model, HttpSession session) {
+			
 		List<Photographer> photographers = userDAO.findAllPhotographers();
 		for (Photographer photographer : photographers) {
 			System.out.println(photographer);

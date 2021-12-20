@@ -35,7 +35,7 @@ public class LoginController {
 		if (user != null) {
 
 			if (user.getPassword().equals(password)) {
-
+				session.setAttribute("username", username);
 				if (user.getPhotographer() != null) {
 					photoG = user.getPhotographer();
 					session.setAttribute("photographer", photoG);

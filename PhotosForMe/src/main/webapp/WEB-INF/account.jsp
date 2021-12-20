@@ -68,82 +68,88 @@
 					</div>
 
 				</div>
+				<c:if
+					test="${username == photographer.user.username || username == user.username}">
+					<div id="leftcolumnmiddlerow" class="row">
+						<c:choose>
+							<c:when test="${not empty photographer}">
+								<button class="accordion">Open contract(s)</button>
+								<div class="panel">
+									<c:forEach var="contract" items="${photographer.contracts}">
+										<c:if test="${contract.closed < 1 }">
+											<p>${contract.title },${contract.description },
+												${contract.location }, ${contract.eventStart },
+												${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
+										</c:if>
+									</c:forEach>
 
-				<div id="leftcolumnmiddlerow" class="row">
-					<c:choose>
-						<c:when test="${not empty photographer}">
-							<button class="accordion">Open contract(s)</button>
-							<div class="panel">
-								<c:forEach var="contract" items="${photographer.contracts}">
-									<c:if test="${contract.closed < 1 }">
-										<p>${contract.title },${contract.description },
-											${contract.location }, ${contract.eventStart },
-											${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
-									</c:if>
-								</c:forEach>
+								</div>
+							</c:when>
+							<c:otherwise>
+								<button class="accordion">Closed Contract(s)</button>
+								<div class="panel">
+									<c:forEach var="contract" items="${user.contracts}">
+										<c:if test="${contract.closed < 1 }">
+											<p>${contract.title },${contract.description },
+												${contract.location }, ${contract.eventStart },
+												${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
+										</c:if>
+									</c:forEach>
 
-							</div>
-						</c:when>
-						<c:otherwise>
-							<button class="accordion">Closed Contract(s)</button>
-							<div class="panel">
-								<c:forEach var="contract" items="${user.contracts}">
-									<c:if test="${contract.closed < 1 }">
-										<p>${contract.title },${contract.description },
-											${contract.location }, ${contract.eventStart },
-											${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
-									</c:if>
-								</c:forEach>
+								</div>
+							</c:otherwise>
 
-							</div>
-						</c:otherwise>
-
-					</c:choose>
-				</div>
-
-				<div id="leftcolumnbottomrow" class="row">
-					<c:choose>
-						<c:when test="${not empty photographer}">
-							<button class="accordion">Closed Contract(s)</button>
-							<div class="panel">
-								<c:forEach var="contract" items="${photographer.contracts}">
-									<c:if test="${contract.closed > 0 }">
-										<p>${contract.title },${contract.description },
-											${contract.location }, ${contract.eventStart },
-											${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
-									</c:if>
-								</c:forEach>
-							</div>
-						</c:when>
-						<c:otherwise>
-							<button class="accordion">Closed Contract(s)</button>
-							<div class="panel">
-								<c:forEach var="contract" items="${photographer.contracts}">
-									<c:if test="${contract.closed > 0 }">
-										<p>${contract.title },${contract.description },
-											${contract.location }, ${contract.eventStart },
-											${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
-									</c:if>
-								</c:forEach>
-							</div>
-						</c:otherwise>
-					</c:choose>
-				</div>
-				<c:if test="${not empty photographer  }">
-					<!--Testing to see if they are a photographer to give a list of client account they worked with.  -->
-
-					<div id="leftcolumntoprowphoto" class="row">
-						<button class="accordion">Current client</button>
-						<div class="panel">
-							<c:forEach var="contract" items="${photographer.contracts}">
-								<c:if test="${contract.closed < 1 }">
-									<p>${contract.user.firstName},${contract.user.lastName },
-										${contract.user.email }, ${contract.user.address.phone }</p>
-								</c:if>
-							</c:forEach>
-						</div>
-
+						</c:choose>
 					</div>
+				</c:if>
+				<c:if
+					test="${username == photographer.user.username  || username == user.username}">
+					<div id="leftcolumnbottomrow" class="row">
+						<c:choose>
+							<c:when test="${not empty photographer}">
+								<button class="accordion">Closed Contract(s)</button>
+								<div class="panel">
+									<c:forEach var="contract" items="${photographer.contracts}">
+										<c:if test="${contract.closed > 0 }">
+											<p>${contract.title },${contract.description },
+												${contract.location }, ${contract.eventStart },
+												${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
+										</c:if>
+									</c:forEach>
+								</div>
+							</c:when>
+							<c:otherwise>
+								<button class="accordion">Closed Contract(s)</button>
+								<div class="panel">
+									<c:forEach var="contract" items="${photographer.contracts}">
+										<c:if test="${contract.closed > 0 }">
+											<p>${contract.title },${contract.description },
+												${contract.location }, ${contract.eventStart },
+												${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
+										</c:if>
+									</c:forEach>
+								</div>
+							</c:otherwise>
+						</c:choose>
+					</div>
+				</c:if>
+				<c:if test="${username == photographer.user.username}">
+					<c:if test="${not empty photographer  }">
+						<!--Testing to see if they are a photographer to give a list of client account they worked with.  -->
+
+						<div id="leftcolumntoprowphoto" class="row">
+							<button class="accordion">Current client</button>
+							<div class="panel">
+								<c:forEach var="contract" items="${photographer.contracts}">
+									<c:if test="${contract.closed < 1 }">
+										<p>${contract.user.firstName},${contract.user.lastName },
+											${contract.user.email }, ${contract.user.address.phone }</p>
+									</c:if>
+								</c:forEach>
+							</div>
+
+						</div>
+					</c:if>
 					<div id="leftcolumnbottomrowphoto" class="row">
 						<button class="accordion">Previous Client(s)</button>
 						<div class="panel">
@@ -157,6 +163,7 @@
 
 					</div>
 				</c:if>
+
 			</div>
 
 			<div id="middlecolumnpage" class="col-sm-6">
@@ -203,53 +210,60 @@
 							Photographer</button>
 					</div>
 				</c:if>
-				<div id="rightcolumntoprow" class="row">
-					<button class="accordion">Account Information</button>
-					<div class="panel">
-						<p>User name:</p>
-						<input type="text" name="username" placeholder="Username">
-						<p>Password:</p>
-						<input type="text" name="password" placeholder="password">
-						<p>Email address:</p>
-						<input type="text" name="email" placeholder="email">
-						<p>Address:</p>
-						<input type="text" name="address" placeholder="address">
-						<p>Payment information:</p>
-						<input type="text" name="payment" placeholder="payment">
-						<p>Profile Picture:</p>
-						<input type="text" name="profilepic" placeholder="profilepic">
-						<br>
-						<button class="button">Update Account</button>
+				<c:if
+					test="${username == photographer.user.username  || username == user.username}">
 
-						<button class="button">Deactivate Account</button>
-					</div>
-				</div>
-				<c:if test="${ not empty photographer }">
-					<!--Testing to see if they are a photographer to give additional editing.  -->
-					<div id="rightcolumnbottomrow" class="row">
-						<button class="accordion">Update Profile Page</button>
+					<div id="rightcolumntoprow" class="row">
+						<button class="accordion">Account Information</button>
 						<div class="panel">
-							<p>Navigation bar background color</p>
-							<input type="text" name="navbackgroundcolor"
-								placeholder="backgroundcolor">
-							<p>Page background</p>
-							<input type="text" name="pagebackgroundcolor"
-								placeholder="backgroundcolor">
-							<p>font color</p>
-							<input type="text" name="fontcolor" placeholder="fontcolor">
-							<p>nav font color</p>
-							<input type="text" name="navfontcolor" placeholder="fontcolor">
-							<p>border color</p>
-							<input type="text" name="bordercolor" placeholder="bordercolor">
-							<p>accordion default color</p>
-							<input type="text" name="accordianbasecolor"
-								placeholder="accordianbasecolor"> <br>
-							<p>accordion hover/active color</p>
-							<input type="text" name="hoveractivecolor"
-								placeholder="hoveractivecolor"> <br>
-							<button class="button">Update Profile Page</button>
+							<p>User name:</p>
+							<input type="text" name="username" placeholder="Username">
+							<p>Password:</p>
+							<input type="text" name="password" placeholder="password">
+							<p>Email address:</p>
+							<input type="text" name="email" placeholder="email">
+							<p>Address:</p>
+							<input type="text" name="address" placeholder="address">
+							<p>Payment information:</p>
+							<input type="text" name="payment" placeholder="payment">
+							<p>Profile Picture:</p>
+							<input type="text" name="profilepic" placeholder="profilepic">
+							<br>
+							<button class="button">Update Account</button>
+
+							<button class="button">Deactivate Account</button>
 						</div>
 					</div>
+				</c:if>
+				<c:if test="${username == photographer.user.username}">
+
+					<c:if test="${ not empty photographer }">
+						<!--Testing to see if they are a photographer to give additional editing.  -->
+						<div id="rightcolumnbottomrow" class="row">
+							<button class="accordion">Update Profile Page</button>
+							<div class="panel">
+								<p>Navigation bar background color</p>
+								<input type="text" name="navbackgroundcolor"
+									placeholder="backgroundcolor">
+								<p>Page background</p>
+								<input type="text" name="pagebackgroundcolor"
+									placeholder="backgroundcolor">
+								<p>font color</p>
+								<input type="text" name="fontcolor" placeholder="fontcolor">
+								<p>nav font color</p>
+								<input type="text" name="navfontcolor" placeholder="fontcolor">
+								<p>border color</p>
+								<input type="text" name="bordercolor" placeholder="bordercolor">
+								<p>accordion default color</p>
+								<input type="text" name="accordianbasecolor"
+									placeholder="accordianbasecolor"> <br>
+								<p>accordion hover/active color</p>
+								<input type="text" name="hoveractivecolor"
+									placeholder="hoveractivecolor"> <br>
+								<button class="button">Update Profile Page</button>
+							</div>
+						</div>
+					</c:if>
 				</c:if>
 			</div>
 		</div>
