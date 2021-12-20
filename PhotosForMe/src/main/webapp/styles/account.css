@@ -99,7 +99,14 @@ button {
 	position: fixed;
 	
 }
-
+img{
+	height:auto;
+	width:auto;
+	max-height:200px;
+	max-width:400px;
+	margin:auto;
+	display:block;
+}
 
 nav {
 	background:9fa9ec;

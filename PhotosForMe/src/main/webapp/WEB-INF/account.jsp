@@ -35,8 +35,8 @@
 			<div class="collapse navbar-collapse" id="collapsibleNavbar">
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link" href="home">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="gallery"> View
-							Photographers</a></li>
+					<li class="nav-item"><a class="nav-link" href="gallery">
+							View Photographers</a></li>
 					<li class="nav-item"><a class="nav-link" href="logout.do">Logout</a></li>
 				</ul>
 				<input type="text" placeholder="search...">
@@ -70,30 +70,64 @@
 				</div>
 
 				<div id="leftcolumnmiddlerow" class="row">
-					<button class="accordion">Open contract(s)</button>
-					<div class="panel">
-						<c:forEach var="contract" items="${user.contracts}">
-							<c:if test="${contract.closed < 1 }">
-								<p>${contract.title },${contract.description },
-									${contract.location }, ${contract.eventStart },
-									${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
-							</c:if>
-						</c:forEach>
-					</div>
+					<c:choose>
+						<c:when test="${not empty photographer}">
+							<button class="accordion">Open contract(s)</button>
+							<div class="panel">
+								<c:forEach var="contract" items="${photographer.contracts}">
+									<c:if test="${contract.closed < 1 }">
+										<p>${contract.title },${contract.description },
+											${contract.location }, ${contract.eventStart },
+											${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
+									</c:if>
+								</c:forEach>
+
+							</div>
+						</c:when>
+						<c:otherwise>
+							<button class="accordion">Closed Contract(s)</button>
+							<div class="panel">
+								<c:forEach var="contract" items="${user.contracts}">
+									<c:if test="${contract.closed < 1 }">
+										<p>${contract.title },${contract.description },
+											${contract.location }, ${contract.eventStart },
+											${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
+									</c:if>
+								</c:forEach>
+
+							</div>
+						</c:otherwise>
+
+					</c:choose>
 				</div>
 
 				<div id="leftcolumnbottomrow" class="row">
-					<button class="accordion">Closed Contract(s)</button>
-					<div class="panel">
-						<c:forEach var="contract" items="${user.contracts}">
-							<c:if test="${contract.closed > 0 }">
-								<p>${contract.title },${contract.description },
-									${contract.location }, ${contract.eventStart },
-									${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
-							</c:if>
-						</c:forEach>
-					</div>
-
+					<c:choose>
+						<c:when test="${not empty photographer}">
+							<button class="accordion">Closed Contract(s)</button>
+							<div class="panel">
+								<c:forEach var="contract" items="${photographer.contracts}">
+									<c:if test="${contract.closed > 0 }">
+										<p>${contract.title },${contract.description },
+											${contract.location }, ${contract.eventStart },
+											${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
+									</c:if>
+								</c:forEach>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<button class="accordion">Closed Contract(s)</button>
+							<div class="panel">
+								<c:forEach var="contract" items="${photographer.contracts}">
+									<c:if test="${contract.closed > 0 }">
+										<p>${contract.title },${contract.description },
+											${contract.location }, ${contract.eventStart },
+											${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
+									</c:if>
+								</c:forEach>
+							</div>
+						</c:otherwise>
+					</c:choose>
 				</div>
 				<c:if test="${not empty photographer  }">
 					<!--Testing to see if they are a photographer to give a list of client account they worked with.  -->
@@ -103,8 +137,10 @@
 						<div class="panel">
 							<c:forEach var="contract" items="${photographer.contracts}">
 								<c:if test="${contract.closed < 1 }">
-						<p>${contract.user.firstName}, ${contract.user.lastName }, ${contract.user.email }, ${contract.user.address.phone }</p>
-						</c:if></c:forEach>
+									<p>${contract.user.firstName},${contract.user.lastName },
+										${contract.user.email }, ${contract.user.address.phone }</p>
+								</c:if>
+							</c:forEach>
 						</div>
 
 					</div>
@@ -113,8 +149,10 @@
 						<div class="panel">
 							<c:forEach var="contract" items="${photographer.contracts}">
 								<c:if test="${contract.closed > 0 }">
-						<p>${contract.user.firstName}, ${contract.user.lastName }, ${contract.user.email }, ${contract.user.address.phone }</p>
-						</c:if></c:forEach>
+									<p>${contract.user.firstName},${contract.user.lastName },
+										${contract.user.email }, ${contract.user.address.phone }</p>
+								</c:if>
+							</c:forEach>
 						</div>
 
 					</div>
@@ -136,13 +174,13 @@
 					<div id="middlecolumnmiddlerow" class="row">
 						<div class="col-sm-12 ">
 							<c:forEach var="galler" items="${photographer.gallery }">
-							<button class="accordion">${galler.title}</button>
+								<button class="accordion">${galler.title}</button>
 						${galler.description}
 						<div class="panel">
-						<c:forEach var="image" items="${galler.images }">
-						<img alt="${image.title}" src="${ image.urlLink}">
-						</c:forEach>
-						</div>
+									<c:forEach var="image" items="${galler.images }">
+										<img alt="${image.title}" src="${ image.urlLink}">
+									</c:forEach>
+								</div>
 							</c:forEach>
 						</div>
 					</div>
