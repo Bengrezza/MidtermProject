@@ -18,6 +18,12 @@ html, body, .container {
 	justify-content: center;
 }
 
+img {
+	width: 50rem;
+	height: auto;
+	margin-bottom: 1.5rem;
+}
+
 #leftcolumntoprow{
 	border:double #efdc8a;
 	border-radius: 25px;	
