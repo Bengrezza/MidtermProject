@@ -41,8 +41,10 @@ public class GalleryController {
 		Photographer photographer = userDAO.findPhotographerByID(photographerid);
 		
 		session.setAttribute("photographer", photographer);
+		session.setAttribute("user", photographer.getUser());
+		session.setAttribute("chs", photographer.getChps());
 		
-		System.out.println(photographer.getId());
+		System.out.println(photographer.getContracts() + " # " + photographer.getContracts().size());
 		
 		return "account";
 	}
