@@ -13,6 +13,7 @@ import com.skilldistillery.photonerds.entities.Address;
 import com.skilldistillery.photonerds.entities.ContractHasPhotographer;
 import com.skilldistillery.photonerds.entities.Country;
 import com.skilldistillery.photonerds.entities.Gallery;
+import com.skilldistillery.photonerds.entities.Image;
 import com.skilldistillery.photonerds.entities.Photographer;
 import com.skilldistillery.photonerds.entities.User;
 
@@ -135,5 +136,31 @@ public class UserDAOImpl implements UserDAO {
 		List<ContractHasPhotographer> chp = em.createQuery(jpql, ContractHasPhotographer.class).getResultList();
 		return chp;
 	}
+
+	@Override
+	public Boolean removeImageFromGallery(Image image, Gallery gallery) {
+		gallery.removeImage(image);
+		Boolean deleted = false;
+		if( !gallery.getImages().contains(image)) {
+			deleted = true;
+		}
+		
+		return deleted;
+	}
+
+	@Override
+	public Image findImageById(int id) {
+		String jpql = "SELECT i FROM Image WHERE id = :id";
+		Image image = em.createQuery(jpql, Image.class).setParameter("id", id).getSingleResult();
+		return image;
+	}
+	@Override
+	public Gallery findGalleryById(int id) {
+		String jpql = "SELECT g FROM Gallery WHERE id = :id";
+		Gallery gallery = em.createQuery(jpql, Gallery.class).setParameter("id", id).getSingleResult();
+		return gallery;
+	}
+	
+
 
 }

@@ -58,13 +58,13 @@
 						<div class="col-sm-12">
 							<p id="rating">Rating ${chs[0].rating }, ${user.firstName },
 								${user.lastName } Location: ${user.address.city},
-								${user.address.state})</p>
+								${user.address.state}</p>
 						</div>
 					</div>
 				</c:if>
 				<div id="leftcolumntoprow" class="row">
 					<div class=" d-flex justify-content-center">
-						<div class="col-sm-12 ">column 1 Favorite photographers</div>
+						<div class="col-sm-12 ">Favorite photographers</div>
 					</div>
 
 				</div>
@@ -167,8 +167,6 @@
 			</div>
 
 			<div id="middlecolumnpage" class="col-sm-6">
-				<p>column 2</p>
-
 				<c:if test="${not empty photographer}">
 					<!--Testing to see if they are a photographer to give album editing of contract they have done.  -->
 					<div id="middlecolumntoprow" class="row">
@@ -186,6 +184,13 @@
 						<div class="panel">
 									<c:forEach var="image" items="${galler.images }">
 										<img alt="${image.title}" src="${ image.urlLink}">
+										<c:if test="${username == photographer.user.username}">
+										<form action="remove.do" method="POST">
+										<input type="hidden" value="${image.id }" name="imageId">
+										<input type="hidden" value="${gallery.id }" name="galleryId">
+										<button name="remove" type="submit">Remove</button>
+										</form>
+										</c:if>
 									</c:forEach>
 								</div>
 							</c:forEach>
@@ -203,11 +208,11 @@
 			</div>
 
 			<div id="rightcolumnpage" class="col-sm-3">
-				column 3 Welcome User(signed in)
 				<c:if test="${not empty photographer }">
 					<div id="contact">
-						<button id=contactPhotographer type="button">Contact
+						<button class="accordion" id=contactPhotographer type="button">Contact
 							Photographer</button>
+							<div class="panel">${photographer.user.email }</div>
 					</div>
 				</c:if>
 				<c:if
