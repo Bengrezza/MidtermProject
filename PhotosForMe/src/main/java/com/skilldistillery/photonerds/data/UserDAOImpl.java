@@ -128,5 +128,12 @@ public class UserDAOImpl implements UserDAO {
 		
 		return chs;
 	}
+	
+	@Override
+	public List<ContractHasPhotographer> findAllReviews() {
+		String jpql = "SELECT chp FROM ContractHasPhotographer chp";
+		List<ContractHasPhotographer> chp = em.createQuery(jpql, ContractHasPhotographer.class).getResultList();
+		return chp;
+	}
 
 }

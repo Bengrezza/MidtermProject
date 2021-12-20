@@ -182,11 +182,11 @@ public class Photographer {
 				&& Objects.equals(user, other.user);
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Photographer [id=" + id + ", active=" + active + ", business=" + business + ", description="
-//				+ description + ", businessLogo=" + businessLogo + ", gallery=" + galleries
-//				+ ", photoShootTypes=" + photoShootTypes + ", contracts=" + contracts + "]";
-//	}
+	@Override
+	public String toString() {
+		return "Photographer [id=" + id + ", active=" + active + ", business=" + business + ", description="
+				+ description + ", businessLogo=" + businessLogo + ", gallery=" + galleries
+				+ ", photoShootTypes=" + photoShootTypes + ", contracts=" + contracts + "]";
+	}
 
 }
