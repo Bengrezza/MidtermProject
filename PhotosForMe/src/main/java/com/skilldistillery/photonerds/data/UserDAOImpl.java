@@ -150,15 +150,21 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public Image findImageById(int id) {
-		String jpql = "SELECT i FROM Image WHERE id = :id";
+		String jpql = "SELECT i FROM Image i WHERE i.id = :id";
 		Image image = em.createQuery(jpql, Image.class).setParameter("id", id).getSingleResult();
 		return image;
 	}
 	@Override
 	public Gallery findGalleryById(int id) {
-		String jpql = "SELECT g FROM Gallery WHERE id = :id";
+		String jpql = "SELECT g FROM Gallery g WHERE g.id = :id";
 		Gallery gallery = em.createQuery(jpql, Gallery.class).setParameter("id", id).getSingleResult();
 		return gallery;
+	}
+
+	@Override
+	public User updateAccount(User user) {
+		em.persist(user);
+		return user;
 	}
 	
 

@@ -23,4 +23,5 @@ public interface UserDAO {
 	Boolean removeImageFromGallery(Image image, Gallery gallery);
 	Image findImageById(int id);
 	Gallery findGalleryById(int id);
+	User updateAccount(User user);
 }

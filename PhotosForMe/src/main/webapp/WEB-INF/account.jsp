@@ -187,8 +187,8 @@
 										<c:if test="${username == photographer.user.username}">
 										<form action="remove.do" method="POST">
 										<input type="hidden" value="${image.id }" name="imageId">
-										<input type="hidden" value="${gallery.id }" name="galleryId">
-										<button name="remove" type="submit">Remove</button>
+										<input type="hidden" value="${galler.id }" name="galleryId">
+										<button type="submit" value="Submit">Remove</button>
 										</form>
 										</c:if>
 									</c:forEach>
@@ -221,20 +221,15 @@
 					<div id="rightcolumntoprow" class="row">
 						<button class="accordion">Account Information</button>
 						<div class="panel">
+						<form action="account.do" method="POST">
 							<p>User name:</p>
-							<input type="text" name="username" placeholder="Username">
+							<input type="text" name="username" value="${user.username }">
 							<p>Password:</p>
-							<input type="text" name="password" placeholder="password">
+							<input type="text" name="password" value="${user.password }">
 							<p>Email address:</p>
-							<input type="text" name="email" placeholder="email">
-							<p>Address:</p>
-							<input type="text" name="address" placeholder="address">
-							<p>Payment information:</p>
-							<input type="text" name="payment" placeholder="payment">
-							<p>Profile Picture:</p>
-							<input type="text" name="profilepic" placeholder="profilepic">
-							<br>
-							<button class="button">Update Account</button>
+							<input type="text" name="email" value="${user.email }">
+							<button type="submit" value="Submit">Update Account</button>
+							</form>
 
 							<button class="button">Deactivate Account</button>
 						</div>

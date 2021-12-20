@@ -44,7 +44,6 @@ public class GalleryController {
 		session.setAttribute("user", photographer.getUser());
 		session.setAttribute("chs", photographer.getChps());
 		
-		System.out.println(photographer.getContracts() + " # " + photographer.getContracts().size());
 		
 		return "account";
 	}
