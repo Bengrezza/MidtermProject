@@ -418,6 +418,7 @@ INSERT INTO `contract` (`id`, `title`, `description`, `location`, `event_start`,
 INSERT INTO `contract` (`id`, `title`, `description`, `location`, `event_start`, `event_end`, `photos_deliver_by`, `user_id`, `closed`) VALUES (8, 'home coming', 'multiple military coming home same time', 'Fort Carson', '2022-07-16 13:30:00', '2022-07-16 18:00:00', '2022-07-24 23:59:00', 11, 1);
 INSERT INTO `contract` (`id`, `title`, `description`, `location`, `event_start`, `event_end`, `photos_deliver_by`, `user_id`, `closed`) VALUES (9, 'holiday', 'day of holiday photoshoot', 'Veil, four seaon resort outside', '2022-12-16 10:30:00', '2022-12-16 18:00:00', '2022-12-20 18:00:00', 15, 1);
 INSERT INTO `contract` (`id`, `title`, `description`, `location`, `event_start`, `event_end`, `photos_deliver_by`, `user_id`, `closed`) VALUES (10, 'fall', 'day of fall photoshoot', 'Garden of the gods', '2022-09-16 10:30:00', '2022-09-16 18:00:00', '2022-09-21 18:00:00', 17, 1);
+INSERT INTO `contract` (`id`, `title`, `description`, `location`, `event_start`, `event_end`, `photos_deliver_by`, `user_id`, `closed`) VALUES (11, 'Family', 'day of photoshoot for multiple families', 'studio', '2022-09-16 10:30:00', '2022-09-16 18:00:00', '2022-09-21 18:00:00', 3, 0);
 
 COMMIT;
 
@@ -437,6 +438,7 @@ INSERT INTO `contract_has_photographer` (`contract_id`, `photographer_id`, `rati
 INSERT INTO `contract_has_photographer` (`contract_id`, `photographer_id`, `rating`, `comment`, `price`) VALUES (8, 8, 4, '5 out 5 would recommend', 225);
 INSERT INTO `contract_has_photographer` (`contract_id`, `photographer_id`, `rating`, `comment`, `price`) VALUES (9, 9, 5, 'Higly recommended', 95);
 INSERT INTO `contract_has_photographer` (`contract_id`, `photographer_id`, `rating`, `comment`, `price`) VALUES (10, 10, 5, 'You can\'t go wrong with this photographer ', 95);
+INSERT INTO `contract_has_photographer` (`contract_id`, `photographer_id`, `rating`, `comment`, `price`) VALUES (11, 3, 5, 'Great Experience ', 125);
 
 COMMIT;
 
@@ -460,6 +462,7 @@ INSERT INTO `payment` (`id`, `contract_has_photographer_contract_id`, `contract_
 INSERT INTO `payment` (`id`, `contract_has_photographer_contract_id`, `contract_has_photographer_photographer_id`, `payment_date`, `amount`) VALUES (12, 8, 8, '2022-03-06 11:00:00', 175);
 INSERT INTO `payment` (`id`, `contract_has_photographer_contract_id`, `contract_has_photographer_photographer_id`, `payment_date`, `amount`) VALUES (13, 9, 9, '2022-03-06 11:00:00', 95);
 INSERT INTO `payment` (`id`, `contract_has_photographer_contract_id`, `contract_has_photographer_photographer_id`, `payment_date`, `amount`) VALUES (14, 10, 10, '2022-03-06 11:00:00', 95);
+INSERT INTO `payment` (`id`, `contract_has_photographer_contract_id`, `contract_has_photographer_photographer_id`, `payment_date`, `amount`) VALUES (15, 11, 3, '2022-03-06 11:00:00', 125);
 
 COMMIT;
 
@@ -482,6 +485,7 @@ INSERT INTO `gallery` (`id`, `title`, `photographer_id`, `description`) VALUES (
 INSERT INTO `gallery` (`id`, `title`, `photographer_id`, `description`) VALUES (11, 'Professional 2', 4, 'Display of Professional photos');
 INSERT INTO `gallery` (`id`, `title`, `photographer_id`, `description`) VALUES (12, 'Weddings', 2, 'Display of weddings');
 INSERT INTO `gallery` (`id`, `title`, `photographer_id`, `description`) VALUES (13, 'Fall 2', 10, 'Display of fall photos');
+INSERT INTO `gallery` (`id`, `title`, `photographer_id`, `description`) VALUES (14, 'family', 3, 'Display of family photos');
 
 COMMIT;
 
@@ -656,6 +660,10 @@ INSERT INTO `image_has_gallery` (`image_id`, `gallery_id`) VALUES (85, 13);
 INSERT INTO `image_has_gallery` (`image_id`, `gallery_id`) VALUES (86, 13);
 INSERT INTO `image_has_gallery` (`image_id`, `gallery_id`) VALUES (87, 13);
 INSERT INTO `image_has_gallery` (`image_id`, `gallery_id`) VALUES (88, 13);
+INSERT INTO `image_has_gallery` (`image_id`, `gallery_id`) VALUES (41, 14);
+INSERT INTO `image_has_gallery` (`image_id`, `gallery_id`) VALUES (42, 14);
+INSERT INTO `image_has_gallery` (`image_id`, `gallery_id`) VALUES (43, 14);
+INSERT INTO `image_has_gallery` (`image_id`, `gallery_id`) VALUES (44, 14);
 
 COMMIT;
 

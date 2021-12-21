@@ -76,7 +76,7 @@
 								<button class="accordion">Open contract(s)</button>
 								<div class="panel">
 									<c:forEach var="contract" items="${photographer.contracts}">
-										<c:if test="${contract.closed < 1 }">
+										<c:if test="${contract.closed > 0 }">
 											<p>${contract.title },${contract.description },
 												${contract.location }, ${contract.eventStart },
 												${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
@@ -106,10 +106,11 @@
 					test="${username == photographer.user.username  || username == user.username}">
 					<div id="leftcolumnbottomrow" class="row">
 						<c:choose>
-							<c:when test="${not empty photographer}">
+							<c:when test="${empty photographer}">
 								<button class="accordion">Closed Contract(s)</button>
 								<div class="panel">
 									<c:forEach var="contract" items="${photographer.contracts}">
+
 										<c:if test="${contract.closed > 0 }">
 											<p>${contract.title },${contract.description },
 												${contract.location }, ${contract.eventStart },
@@ -122,7 +123,7 @@
 								<button class="accordion">Closed Contract(s)</button>
 								<div class="panel">
 									<c:forEach var="contract" items="${photographer.contracts}">
-										<c:if test="${contract.closed > 0 }">
+										<c:if test="${contract.closed < 1 }">
 											<p>${contract.title },${contract.description },
 												${contract.location }, ${contract.eventStart },
 												${contract.eventEnd }, ${contract.photoDeliveryBy }</p>
@@ -141,7 +142,7 @@
 							<button class="accordion">Current client</button>
 							<div class="panel">
 								<c:forEach var="contract" items="${photographer.contracts}">
-									<c:if test="${contract.closed < 1 }">
+									<c:if test="${contract.closed > 0 }">
 										<p>${contract.user.firstName},${contract.user.lastName },
 											${contract.user.email }, ${contract.user.address.phone }</p>
 									</c:if>
@@ -154,7 +155,7 @@
 						<button class="accordion">Previous Client(s)</button>
 						<div class="panel">
 							<c:forEach var="contract" items="${photographer.contracts}">
-								<c:if test="${contract.closed > 0 }">
+								<c:if test="${contract.closed < 1 }">
 									<p>${contract.user.firstName},${contract.user.lastName },
 										${contract.user.email }, ${contract.user.address.phone }</p>
 								</c:if>
@@ -185,11 +186,11 @@
 									<c:forEach var="image" items="${galler.images }">
 										<img alt="${image.title}" src="${ image.urlLink}">
 										<c:if test="${username == photographer.user.username}">
-										<form action="remove.do" method="POST">
-										<input type="hidden" value="${image.id }" name="imageId">
-										<input type="hidden" value="${galler.id }" name="galleryId">
-										<button type="submit" value="Submit">Remove</button>
-										</form>
+											<form action="remove.do" method="POST">
+												<input type="hidden" value="${image.id }" name="imageId">
+												<input type="hidden" value="${galler.id }" name="galleryId">
+												<button type="submit" value="Submit">Remove</button>
+											</form>
 										</c:if>
 									</c:forEach>
 								</div>
@@ -210,9 +211,10 @@
 			<div id="rightcolumnpage" class="col-sm-3">
 				<c:if test="${not empty photographer }">
 					<div id="contact">
+						<br>
 						<button class="accordion" id=contactPhotographer type="button">Contact
 							Photographer</button>
-							<div class="panel">${photographer.user.email }</div>
+						<div class="panel">${photographer.user.email }</div>
 					</div>
 				</c:if>
 				<c:if
@@ -221,14 +223,14 @@
 					<div id="rightcolumntoprow" class="row">
 						<button class="accordion">Account Information</button>
 						<div class="panel">
-						<form action="account.do" method="POST">
-							<p>User name:</p>
-							<input type="text" name="username" value="${user.username }">
-							<p>Password:</p>
-							<input type="text" name="password" value="${user.password }">
-							<p>Email address:</p>
-							<input type="text" name="email" value="${user.email }">
-							<button type="submit" value="Submit">Update Account</button>
+							<form action="account.do" method="POST">
+								<p>User name:</p>
+								<input type="text" name="username" value="${user.username }">
+								<p>Password:</p>
+								<input type="text" name="password" value="${user.password }">
+								<p>Email address:</p>
+								<input type="text" name="email" value="${user.email }">
+								<button type="submit" value="Submit">Update Account</button>
 							</form>
 
 							<button class="button">Deactivate Account</button>
