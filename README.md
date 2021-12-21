@@ -25,24 +25,24 @@ First, the user enters the home page. The user can choose to:
 * Register as a user or photographer
 * Login if already a user or photographer
 * Search photographers logged-in or not logged-in
+* View photographer reviews
 
 A logged in user can:
 * Update their profile
 * Deactivate their profile
 * Search for photographers
 
-Demo User Account:
-* Username:
-* Password:
-
 A logged in photographer can:
 * Update their profile
-* Add/Remove gallaries/images
+* Add/Remove gallery/image
 * Deactivate their profile
+* View open/closed contracts
+* View current/previous contracts
+
 
 Demo Photographer Accout:
-* Username:
-* Password:
+* Username: strider
+* Password: ranger
 
 ### Technologies Used:
 
@@ -81,7 +81,7 @@ This project helped us better grasp the capabilities of Dynamic Web Applications
 * Understand Spring Application Contexts.
 * Use the Java Persistence API to generate HTML.
 * Build a Dynamic Web Applications using Spring MVC.
-* CCS and Bootstrap to make it web and mobile-friendly.
+* CSS and Bootstrap to make it web and mobile-friendly.
 
 #### Agile Methodology is very effective:
 Using Agile methodology, our team was able to stay organized and build an application we all are very proud of, in just one week.
