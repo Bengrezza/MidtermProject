@@ -2,7 +2,7 @@
 
 ## JPA Full Stack Midterm Project at Skill Distillery - December 2021
 
-### Built by:
+### Built By:
 * [Andrew Shumway: Software Engineer / Scrum Master](https://github.com/A-Shumway42)
 * [Chris Delong: Software Engineer / CSS King](https://github.com/FrostHavenGames)
 * [Jordon Paynter: Software Engineer / Database Administrator](https://github.com/Panthro22)
@@ -32,8 +32,8 @@ A logged in user can:
 * Search for photographers
 
 Demo User Account:
-Username:
-Password
+* Username:
+* Password:
 
 A logged in photographer can:
 * Update their profile
@@ -41,14 +41,14 @@ A logged in photographer can:
 * Deactivate their profile
 
 Demo Photographer Accout:
-Username:
-Password:
+* Username:
+* Password:
 
-### Technologies used:
+### Technologies Used:
 
 Java, Java Persistence API, Spring MVC & STS, Gradle, SQL, MySQL Workbench, HTML, CSS, Bootstrap, Apache, Tomcat, AWS, Atom, Git, GitHub, Google Docs and Presentations,  and Trello.
 
-### Topics implemented:
+### Topics Implemented:
 
 Dynamic Web Applications using Spring MVC.
 
@@ -68,10 +68,11 @@ Object-Oriented Programming in Java: Abstraction, Polymorphism, Inheritance, and
 
 Test Driven Development using JUNIT Juniper.
 
-### Database Schema Design
+### Database Schema Design:
+
 ![Image of MySQL Database Schema](https://raw.githubusercontent.com/Bengrezza/MidtermProject/main/DB/ERDiagram.png)
 
-### Lessons learned:
+### Lessons Learned:
 
 This project helped us better grasp the capabilities of Dynamic Web Applications by allowing us to better learn how to:
 * Build a multi-table database using MySQL Workbench.
